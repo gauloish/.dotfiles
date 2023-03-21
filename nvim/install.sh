@@ -1,13 +1,13 @@
 #!/bin/sh
 
-# Install Neovim
+#----- Install Neovim
 
 #Neovim:
 	echo "Installing Neovim."
 	sudo dnf install neovim
 	sudo dnf install python3-neovim
 
-# Install Dependencies
+#----- Install Dependencies
 
 #C++:
 	echo "Installing C++ Dependencies."

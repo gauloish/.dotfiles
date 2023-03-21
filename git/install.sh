@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Install Git
+#----- Install Git
 
 #Git:
 	echo "Installing Git."
