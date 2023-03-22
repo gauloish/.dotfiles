@@ -41,7 +41,7 @@ source $HOME/.dotfiles/brave/install.sh
 
 log "Linking Fonts!" "yellow"
 rm -r $HOME/.fonts
-ln -s $HOME/.dotfiles/fonts/.fonts $HOME/.fonts/
+ln -s $HOME/.dotfiles/fonts/.fonts $HOME/.fonts
 
 log "Linking Git Config!" "yellow"
 rm $HOME/.gitconfig
