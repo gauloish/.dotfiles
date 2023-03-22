@@ -42,7 +42,7 @@ source $HOME/.dotfiles/utils.sh
 	sudo dnf install -y texlive-scheme-basic
 
 #Utilitary:
-	log "Installing Soma Utilitaries." "blue"
+	log "Installing Some Utilitaries." "blue"
 	sudo dnf install -y ripgrep
 	sudo dnf install -y fd-find
 
