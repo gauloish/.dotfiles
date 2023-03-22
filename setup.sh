@@ -53,7 +53,7 @@ ln -s $HOME/.dotfiles/starship/starship.toml $HOME/.config/starship.toml
 
 log "Linking Zshell Config!" "yellow"
 rm $HOME/.zshrc
-ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
+ln -s $HOME/.dotfiles/zshell/.zshrc $HOME/.zshrc
 
 log "Linking Wezterm Config!" "yellow"
 rm $HOME/.wezterm.lue
