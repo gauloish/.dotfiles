@@ -6,7 +6,7 @@ source $HOME/.dotfiles/utils.sh
 
 #Zshell:
 	log "Installing Zshell." "blue"
-	sudo dnf install zsh
+	sudo dnf install -y zsh
 
 	log "Changing Default Shell to Zshell" "cyan"
 	chsh -s $(which zsh)

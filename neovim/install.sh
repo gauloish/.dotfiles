@@ -6,8 +6,8 @@ source $HOME/.dotfiles/utils.sh
 
 #Neovim:
 	log "Installing Neovim." "blue"
-	sudo dnf install neovim
-	sudo dnf install python3-neovim
+	sudo dnf install -y neovim
+	sudo dnf install -y python3-neovim
 
 #----- Install Dependencies
 
@@ -17,34 +17,34 @@ source $HOME/.dotfiles/utils.sh
 
 #Python:
 	log "Installing Python Dependencies." "blue"
-	sudo dnf install python
-	sudo dnf install pip
+	sudo dnf install -y python
+	sudo dnf install -y pip
 	pip install pynvim
 	pip install yarp
 
 #Node:
 	log "Installing Node Dependencies." "blue"
-	sudo dnf install nodejs
-	sudo dnf install npm
+	sudo dnf install -y nodejs
+	sudo dnf install -y npm
 
 #Rust:
 	log "Installing Rust Dependencies." "blue"
-	sudo dnf install rust
-	sudo dnf install cargo
+	sudo dnf install -y rust
+	sudo dnf install -y cargo
 
 #Lua:
 	log "Installing Lua Dependencies." "blue"
-	sudo dnf install lua
-	sudo dnf install luarocks
+	sudo dnf install -y lua
+	sudo dnf install -y luarocks
 
 #Latex:
 	log "Installing Latex Dependencies" "blue"
-	sudo dnf install texlive-scheme-full
+	sudo dnf install -y texlive-scheme-full
 
 #Utilitary:
 	log "Installing Soma Utilitaries." "blue"
-	sudo dnf install ripgrep
-	sudo dnf install fd-find
+	sudo dnf install -y ripgrep
+	sudo dnf install -y fd-find
 
 echo " "
 log "Neovim and All Dependencies Installed." "green"

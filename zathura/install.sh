@@ -6,7 +6,7 @@ source $HOME/.dotfiles/utils.sh
 
 #Zathura:
 	log "Installing Zathura." "blue"
-	sudo dnf install zathura
+	sudo dnf install -y zathura
 
 echo " "
 log "Zathura Installed." "green"
