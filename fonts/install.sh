@@ -7,8 +7,8 @@ source $HOME/.dotfiles/utils.sh
 rm -r $HOME/.dotfiles/fonts/packages/
 mkdir $HOME/.dotfiles/fonts/packages/
 
-rm -r $HOME/.dotfiles/fonts/fonts/
-mkdir $HOME/.dotfiles/fonts/fonts/
+rm -r $HOME/.dotfiles/fonts/.fonts/
+mkdir $HOME/.dotfiles/fonts/.fonts/
 
 #Nerd Fonts:
 	log "Installing Nerd Fonts." "blue"
@@ -44,7 +44,7 @@ mkdir $HOME/.dotfiles/fonts/fonts/
 		wget ${url}/${version}/${fonts[$index]}.zip -P $HOME/.dotfiles/fonts/packages/
 
 		if [ $? -eq 0 ]; then
-			unzip $HOME/.dotfiles/fonts/packages/${fonts[$index]}.zip -d $HOME/.dotfiles/fonts/fonts/
+			unzip $HOME/.dotfiles/fonts/packages/${fonts[$index]}.zip -d $HOME/.dotfiles/fonts/.fonts/
 		else
 			log "Cascadia Cove Font Installation Failed!" "red"
 		fi
