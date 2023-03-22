@@ -39,7 +39,7 @@ source $HOME/.dotfiles/utils.sh
 
 #Latex:
 	log "Installing Latex Dependencies" "blue"
-	sudo dnf install -y texlive-scheme-full
+	sudo dnf install -y texlive-scheme-basic
 
 #Utilitary:
 	log "Installing Soma Utilitaries." "blue"
