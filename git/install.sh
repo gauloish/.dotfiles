@@ -1,11 +1,16 @@
 #!/bin/sh
 
+source $HOME/.dotfiles/utils.sh
+
 #----- Install Git
 
 #Git:
-	echo "Installing Git."
+	log "Installing Git." "blue"
 	sudo dnf install git
 
 #Git Credential Manager:
-	echo "Installing Git Credential Manager."
+	log "Installing Git Credential Manager." "blue"
 	curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+
+echo " "
+log "Git and All Dependencies Installed." "green"
