@@ -37,7 +37,7 @@ mkdir $HOME/.dotfiles/fonts/.fonts/
 	fonts[7]="Monoid"
 	fonts[8]="VictorMono"
 
-	for index in $(0 1 2 3 4 5 6 7 8); do
+	for index in 0 1 2 3 4 5 6 7 8; do
 		log "Installing ${names[$index]} Font." "blue"
 		echo " "
 
