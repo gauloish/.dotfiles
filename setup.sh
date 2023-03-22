@@ -29,7 +29,7 @@ source $HOME/.dotfiles/utils.sh
 #----- Install Softwares
 
 source $HOME/.dotfiles/git/install.sh
-source $HOME/.dotfiles/zsh/install.sh
+source $HOME/.dotfiles/zshell/install.sh
 source $HOME/.dotfiles/starship/install.sh
 source $HOME/.dotfiles/wezterm/install.sh
 source $HOME/.dotfiles/neovim/install.sh
