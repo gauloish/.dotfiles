@@ -44,7 +44,8 @@ mkdir $HOME/.dotfiles/fonts/.fonts/
 		wget ${url}/${version}/${fonts[$index]}.zip -P $HOME/.dotfiles/fonts/packages/
 
 		if [ $? -eq 0 ]; then
-			unzip $HOME/.dotfiles/fonts/packages/${fonts[$index]}.zip -d $HOME/.dotfiles/fonts/.fonts/
+			mkdir $HOME/.dotfiles/fonts/.fonts/${fonts[$index]}
+			unzip $HOME/.dotfiles/fonts/packages/${fonts[$index]}.zip -d $HOME/.dotfiles/fonts/.fonts/${fonts[$index]}/
 		else
 			log "Cascadia Cove Font Installation Failed!" "red"
 		fi
