@@ -56,7 +56,7 @@ rm $HOME/.zshrc
 ln -s $HOME/.dotfiles/zshell/.zshrc $HOME/.zshrc
 
 log "Linking Wezterm Config!" "yellow"
-rm $HOME/.wezterm.lue
+rm $HOME/.wezterm.lua
 ln -s $HOME/.dotfiles/wezterm/.wezterm.lua $HOME/.wezterm.lua
 
 log "Linking Neovim Config!" "yellow"
