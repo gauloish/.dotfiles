@@ -40,7 +40,7 @@ source $HOME/.dotfiles/brave/install.sh
 #----- Link Softwares
 
 log "Linking Fonts!" "yellow"
-rm $HOME/.fonts
+rm -r $HOME/.fonts
 ln -s $HOME/.dotfiles/fonts/.fonts $HOME/.fonts/
 
 log "Linking Git Config!" "yellow"
@@ -65,4 +65,5 @@ ln -s $HOME/.dotfiles/neovim/nvim $HOME/.config/nvim
 
 log "Linking Zathura Config!" "yellow"
 rm $HOME/.config/zathura/zathurarc
+mkdir $HOME/.config/zathura/
 ln -s $HOME/.dotfiles/zathura/zathurarc $HOME/.config/zathura/zathurarc
