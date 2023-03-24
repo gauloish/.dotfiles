@@ -4,10 +4,10 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Fonts
 
-rm -r $HOME/.dotfiles/fonts/packages/
+rm -rf $HOME/.dotfiles/fonts/packages/
 mkdir $HOME/.dotfiles/fonts/packages/
 
-rm -r $HOME/.dotfiles/fonts/.fonts/
+rm -rf $HOME/.dotfiles/fonts/.fonts/
 mkdir $HOME/.dotfiles/fonts/.fonts/
 
 #Nerd Fonts:
@@ -51,7 +51,5 @@ mkdir $HOME/.dotfiles/fonts/.fonts/
 		fi
 	done
 
-	rm -r $HOME/.dotfiles/fonts/packages/
-
 echo " "
-log "Nerd Fonts Installed."
+log "Nerd Fonts Installed." "green"
