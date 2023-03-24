@@ -15,5 +15,5 @@ log() {
 
 	colors["end"]="\033[0m"
 
-	echo -e "${colors[$2]} $1 ${colors["end"]}"
+	echo -e "${colors[$2]}$1${colors["end"]}"
 }
