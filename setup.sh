@@ -34,6 +34,8 @@ source $HOME/.dotfiles/starship/install.sh
 source $HOME/.dotfiles/wezterm/install.sh
 source $HOME/.dotfiles/neovim/install.sh
 source $HOME/.dotfiles/fonts/install.sh
+source $HOME/.dotfiles/orchis/install.sh
+source $HOME/.dotfiles/swidow/install.sh
 source $HOME/.dotfiles/zathura/install.sh
 source $HOME/.dotfiles/brave/install.sh
 source $HOME/.dotfiles/chrome/install.sh
