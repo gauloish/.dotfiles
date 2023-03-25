@@ -20,7 +20,7 @@ rm -rf $HOME/.config/gtk-4.0
 	sudo dnf install -y gnome-tweaks
 	sudo dnf install -y gnome-extensions-app
 	sudo dnf install -y gnome-shell-extension-user-theme
-	sudo dnf install -y gnome-shell-extension-dash-to-dock
+	sudo dnf install -y gnome-shell-extension-blur-my-shell
 	sudo dnf install -y gtk-murrine-engine
 	sudo dnf install -y sassc
 
