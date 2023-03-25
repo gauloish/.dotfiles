@@ -102,7 +102,7 @@ function windows.enter()
 		signcolumn = {
 			Startup = true,
 			Buffers = true,
-			NvimTree = true,
+			-- NvimTree = true,
 			TelescopePrompt = true,
 			mason = true,
 			Search = true,
