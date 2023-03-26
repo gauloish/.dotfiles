@@ -13,5 +13,16 @@ source $HOME/.dotfiles/utils.sh
 	sudo cp $HOME/.dotfiles/wezterm/org.wezfurlong.wezterm.png /usr/share/icons/hicolor/128x128/apps
 	sudo mv $HOME/.dotfiles/wezterm/org.wezfurlong.wezterm.png $HOME/.dotfiles/wezterm/icon.png 
 
-echo " "
-log "Wezterm Installed." "green"
+	echo " "
+	log "Wezterm Installed." "green"
+
+#----- Configure Wezterm
+
+#Link:
+	log "Linking Wezterm Configuration!" "yellow"
+	rm $HOME/.wezterm.lua
+	ln -s $HOME/.dotfiles/wezterm/.wezterm.lua $HOME/.wezterm.lua
+
+	echo " "
+	log "Wezterm Configured." "green"
+

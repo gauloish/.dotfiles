@@ -46,5 +46,16 @@ source $HOME/.dotfiles/utils.sh
 	sudo dnf install -y ripgrep
 	sudo dnf install -y fd-find
 
-echo " "
-log "Neovim and All Dependencies Installed." "green"
+	echo " "
+	log "Neovim and All Dependencies Installed." "green"
+
+#----- Configure Neovim
+
+#Link:
+	log "Linking Neovim Configuration!" "yellow"
+	rm $HOME/.config/nvim
+	ln -s $HOME/.dotfiles/neovim/nvim $HOME/.config/nvim
+
+	echo " "
+	log "Neovim Configured." "green"
+
