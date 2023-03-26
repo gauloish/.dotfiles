@@ -53,9 +53,8 @@ source $HOME/.dotfiles/utils.sh
 
 #Link:
 	log "Linking Neovim Configuration!" "yellow"
-	rm $HOME/.config/nvim
-	ln -s $HOME/.dotfiles/neovim/nvim $HOME/.config/nvim
+	rm $CONF/nvim
+	ln -s $REPO/neovim/nvim $CONF/nvim
 
 	echo " "
 	log "Neovim Configured." "green"
-
