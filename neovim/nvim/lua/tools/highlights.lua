@@ -46,7 +46,7 @@ highlights.colors = function()
 		highlight("CmpNormal", { fg = palette.base[10], clear = true })
 		highlight("CmpCursorLine", { bg = palette.base[4], clear = true })
 		highlight("CmpSearch", { fg = palette.cyan[2], clear = true })
-		highlight("CmpGhostText", { fg = palette.cyan[2], clear = true })
+		highlight("CmpGhostText", { fg = palette.base[8], clear = true })
 
 		highlight("CmpItemAbbr", { fg = palette.case[3], clear = true })
 		highlight("CmpItemAbbrDeprecated", { fg = palette.case[10], clear = true })
