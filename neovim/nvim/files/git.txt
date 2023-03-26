@@ -1,0 +1,20 @@
+Init Repository:
+	git init <directory>
+
+Rename (Move) Branch:
+	git branch --move <from> <to>
+
+Add Branch:
+	git branch <branch>
+
+Remove Branch:
+	git branch --delete <branch>
+
+Go to Branch:
+	git checkout <branch>
+
+Add Changes:
+	git add <file>
+
+Commit Changes:
+	git commit -m "<comment>"
