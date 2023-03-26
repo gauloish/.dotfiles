@@ -51,6 +51,8 @@ mkdir $HOME/.dotfiles/fonts/.fonts/
 		fi
 	done
 
+	fc-cache $HOME/.fonts
+
 	echo " "
 	log "Nerd Fonts Installed." "green"
 
