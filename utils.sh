@@ -1,5 +1,8 @@
 #!/bin/sh
 
+REPO=$HOME/.dotfiles
+CONF=$HOME/.config
+
 log() {
 	declare -A colors
 
