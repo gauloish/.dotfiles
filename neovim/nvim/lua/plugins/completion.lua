@@ -150,6 +150,9 @@ completion.setup({
 	},
 	experimental = {
 		native_menu = false,
+		ghost_text = {
+			hl_group = "CmpGhostText",
+		},
 	},
 })
 
