@@ -4,13 +4,13 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Swidow
 
-rm -rf $HOME/.dotfiles/swidow/packages/
-mkdir $HOME/.dotfiles/swidow/packages/
+rm -rf $REPO/swidow/packages/
+mkdir $REPO/swidow/packages/
 
 #Reversl:
 	log "Installing Swidow." "blue"
-	git -C $HOME/.dotfiles/swidow/packages clone https://github.com/gauloish/swidow.git
-	sh $HOME/.dotfiles/swidow/packages/swidow/install.sh -a -c
+	git -C $REPO/swidow/packages clone https://github.com/gauloish/swidow.git
+	sh $REPO/swidow/packages/swidow/install.sh -a -c
 
 echo " "
 log "Swidow Installed." "green"
