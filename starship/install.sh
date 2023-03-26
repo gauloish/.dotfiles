@@ -15,8 +15,8 @@ source $HOME/.dotfiles/utils.sh
 
 #Linkt:
 	log "Linking Starship Configuration!" "yellow"
-	rm $HOME/.config/starship.toml
-	ln -s $HOME/.dotfiles/starship/starship.toml $HOME/.config/starship.toml
+	rm $CONF/starship.toml
+	ln -s $REPO/starship/starship.toml $CONF/starship.toml
 
 	echo " "
 	log "Starship Configured." "green"
