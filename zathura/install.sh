@@ -15,9 +15,9 @@ source $HOME/.dotfiles/utils.sh
 
 #Link:
 	log "Linking Zathura Configuration!" "yellow"
-	rm $HOME/.config/zathura/zathurarc
-	mkdir $HOME/.config/zathura/
-	ln -s $HOME/.dotfiles/zathura/zathurarc $HOME/.config/zathura/zathurarc
+	rm $CONF/zathura/zathurarc
+	mkdir $CONF/zathura/
+	ln -s $REPO/zathura/zathurarc $CONF/zathura/zathurarc
 
 	echo " "
 	log "Zathura Configured." "green"
