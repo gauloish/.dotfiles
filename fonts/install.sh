@@ -4,11 +4,11 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Fonts
 
-rm -rf $HOME/.dotfiles/fonts/packages/
-mkdir $HOME/.dotfiles/fonts/packages/
+rm -rf $REPO/fonts/packages/
+mkdir $REPO/fonts/packages/
 
-rm -rf $HOME/.dotfiles/fonts/.fonts/
-mkdir $HOME/.dotfiles/fonts/.fonts/
+rm -rf $REPO/fonts/.fonts/
+mkdir $REPO/fonts/.fonts/
 
 #Nerd Fonts:
 	log "Installing Nerd Fonts." "blue"
@@ -41,11 +41,11 @@ mkdir $HOME/.dotfiles/fonts/.fonts/
 		log "Installing ${names[$index]} Font." "blue"
 		echo " "
 
-		wget ${url}/${version}/${fonts[$index]}.zip -P $HOME/.dotfiles/fonts/packages/
+		wget ${url}/${version}/${fonts[$index]}.zip -P $REPO/fonts/packages/
 
 		if [ $? -eq 0 ]; then
-			mkdir $HOME/.dotfiles/fonts/.fonts/${fonts[$index]}
-			unzip $HOME/.dotfiles/fonts/packages/${fonts[$index]}.zip -d $HOME/.dotfiles/fonts/.fonts/${fonts[$index]}/
+			mkdir $REPO/fonts/.fonts/${fonts[$index]}
+			unzip $REPO/fonts/packages/${fonts[$index]}.zip -d $REPO/fonts/.fonts/${fonts[$index]}/
 		else
 			log "Cascadia Cove Font Installation Failed!" "red"
 		fi
@@ -61,7 +61,7 @@ mkdir $HOME/.dotfiles/fonts/.fonts/
 #Link:
 	log "Linking Fonts!" "yellow"
 	rm -r $HOME/.fonts
-	ln -s $HOME/.dotfiles/fonts/.fonts $HOME/.fonts
+	ln -s $REPO/fonts/.fonts $HOME/.fonts
 
 	echo " "
 	log "Nerd Fonts Configured." "green"
