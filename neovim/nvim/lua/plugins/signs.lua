@@ -19,12 +19,12 @@ local signs = modules("gitsigns")
 
 signs.setup({
 	signs = {
-		add = { text = "+" },
-		change = { text = "~" },
-		delete = { text = "-" },
-		topdelete = { text = "‾" },
-		changedelete = { text = "~" },
-		untracked = { text = ":" },
+		add = { text = " +" },
+		change = { text = " ~" },
+		delete = { text = " -" },
+		topdelete = { text = " ‾" },
+		changedelete = { text = " ~" },
+		untracked = { text = " :" },
 	},
 	numhl = true,
 	linehl = true,
@@ -46,9 +46,9 @@ signs.setup({
 		col = 1,
 	},
 	on_attach = function(_)
-		nnoremap("<a-g>vh", ":Gitsigns preview_hunk")
-		nnoremap("<a-g>ph", ":Gitsigns prev_hunk")
-		nnoremap("<a-g>nh", ":Gitsigns next_hunk")
-		nnoremap("<a-g>lh", ":Gitsigns toggle_linehl")
+		nnoremap("<a-g>vh", ":Gitsigns preview_hunk<cr>", { desc = "Open Preview Hunk", silent = true })
+		nnoremap("<a-g>ph", ":Gitsigns prev_hunk<cr>", { desc = "Jump to Previous Hunk", silent = true })
+		nnoremap("<a-g>nh", ":Gitsigns next_hunk<cr>", { desc = "Jump to Next Hunk", silent = true })
+		nnoremap("<a-g>lh", ":Gitsigns toggle_linehl<cr>", { desc = "Open Preview Hunk", silent = true })
 	end,
 })
