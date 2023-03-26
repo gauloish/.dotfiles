@@ -19,3 +19,17 @@ source $HOME/.dotfiles/utils.sh
 
 	sudo rm -f /usr/share/icons/hicolor/scalable/apps/kitty.svg
 	sudo cp $HOME/.dotfiles/kitty/icons/scalable/kitty.svg /usr/share/icons/hicolor/scalable/apps/kitty.svg
+
+	echo " "
+	log "Kitty Installed." "green"
+
+#----- Configure Kitty
+
+#Link:
+	log "Linking Kitty Configuration!" "yellow"
+	rm $HOME/.config/kitty/kitty.conf
+	mkdir $HOME/.config/kitty/
+	ln -s $HOME/.dotfiles/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+
+	echo " "
+	log "Kitty Configured." "green"
