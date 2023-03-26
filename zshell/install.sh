@@ -19,7 +19,7 @@ source $HOME/.dotfiles/utils.sh
 #Link:
 	log "Linking Zshell Configuration!" "yellow"
 	rm $HOME/.zshrc
-	ln -s $HOME/.dotfiles/zshell/.zshrc $HOME/.zshrc
+	ln -s $REPO/zshell/.zshrc $HOME/.zshrc
 
 	echo " "
 	log "Zshell Configured." "green"
