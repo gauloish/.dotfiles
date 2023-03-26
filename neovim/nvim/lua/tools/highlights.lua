@@ -105,8 +105,6 @@ highlights.colors = function()
 
 		highlight("NvimTreeNormal", { bg = palette.base[2], fg = palette.base[10], clear = true })
 		highlight("NvimTreeNormalNC", { bg = palette.base[2], fg = palette.base[10], clear = true })
-		highlight("NvimTreeStatusLine", { bg = palette.base[2], fg = palette.base[10], clear = true })
-		highlight("NvimTreeStatusLineNC", { bg = palette.base[2], fg = palette.base[10], clear = true })
 		highlight("NvimTreeSignColumn", { bg = palette.base[2], fg = palette.base[10], clear = true })
 		highlight("NvimTreeWinSeparator", { bg = palette.base[3], fg = palette.base[2], clear = true })
 		highlight("NvimTreeEndOfBuffer", { fg = palette.base[2], clear = true })
