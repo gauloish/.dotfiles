@@ -28,14 +28,14 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install and Setup Softwares
 
-source $HOME/.dotfiles/git/install.sh
-source $HOME/.dotfiles/starship/install.sh
-source $HOME/.dotfiles/fish/install.sh
-source $HOME/.dotfiles/blackbox/install.sh
-source $HOME/.dotfiles/neovim/install.sh
-source $HOME/.dotfiles/fonts/install.sh
-source $HOME/.dotfiles/orchis/install.sh
-source $HOME/.dotfiles/swidow/install.sh
-source $HOME/.dotfiles/zathura/install.sh
-source $HOME/.dotfiles/brave/install.sh
-source $HOME/.dotfiles/chrome/install.sh
+source $REPO/git/install.sh
+source $REPO/starship/install.sh
+source $REPO/fish/install.sh
+source $REPO/blackbox/install.sh
+source $REPO/neovim/install.sh
+source $REPO/fonts/install.sh
+source $REPO/orchis/install.sh
+source $REPO/swidow/install.sh
+source $REPO/zathura/install.sh
+source $REPO/brave/install.sh
+source $REPO/chrome/install.sh
