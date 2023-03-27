@@ -4,9 +4,12 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Fish
 
+rm -rf $CONF/fish/
+mkdir $CONF/fish/
+
 #Fish:
 	log "Installing Fish." "blue"
-	sudo dnf install fish
+	sudo dnf install -y fish
 
 #----- Configure Fish
 
