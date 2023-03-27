@@ -30,6 +30,8 @@ source $HOME/.dotfiles/utils.sh
 
 source $HOME/.dotfiles/git/install.sh
 source $HOME/.dotfiles/starship/install.sh
+source $HOME/.dotfiles/fish/install.sh
+source $HOME/.dotfiles/blackbox/install.sh
 source $HOME/.dotfiles/neovim/install.sh
 source $HOME/.dotfiles/fonts/install.sh
 source $HOME/.dotfiles/orchis/install.sh
