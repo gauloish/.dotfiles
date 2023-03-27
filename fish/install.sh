@@ -4,7 +4,7 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Fish
 
-#Git:
+#Fish:
 	log "Installing Fish." "blue"
 	sudo dnf install fish
 
