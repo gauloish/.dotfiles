@@ -1,0 +1,27 @@
+format = '$all'
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = "🍣 "
+style = "bold yellow"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = "⚔️ "
+ahead = ""
+behind = ""
+diverged = ""
+untracked = "*"
+stashed = "st "
+modified = "×"
+staged = "+"
+renamed = "~"
+deleted = "-"
+style = "bold "
+format = '([\[$all_status$ahead_behind\]]($style))'
