@@ -1,4 +1,4 @@
-function keymaps --description 'vi-like key bindings for fish'
+function keymaps --description 'neovim key bindings for fish'
     if contains -- -h $argv
         or contains -- --help $argv
         echo "Sorry but this function doesn't support -h or --help" >&2
