@@ -15,7 +15,7 @@ local terminal = modules("toggleterm")
 ---------- Terminal Setup
 
 terminal.setup({
-	direction = "horizontal",
+	direction = "float",
 	open_mapping = "<a-t>t",
 	close_on_exit = true,
 	on_open = function(term)
