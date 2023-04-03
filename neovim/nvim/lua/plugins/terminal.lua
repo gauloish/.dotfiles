@@ -57,6 +57,7 @@ terminal.setup({
 	end,
 	hide_numbers = true,
 	shade_terminals = false,
+	shell = "/bin/fish",
 	highlights = {
 		Normal = { link = "TerminalNormal" },
 		NormalFloat = { link = "TerminalNormalFloat" },
