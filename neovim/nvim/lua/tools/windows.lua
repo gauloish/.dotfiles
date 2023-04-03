@@ -81,6 +81,7 @@ function windows.enter()
 			TelescopePrompt = true,
 			mason = true,
 			Search = true,
+			toggleterm = true,
 		},
 		relativenumber = {
 			Startup = true,
@@ -89,6 +90,7 @@ function windows.enter()
 			TelescopePrompt = true,
 			mason = true,
 			Search = true,
+			toggleterm = true,
 		},
 		foldcolumn = {
 			Startup = true,
