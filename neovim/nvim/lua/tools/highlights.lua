@@ -19,7 +19,7 @@ highlights.colors = function()
 		highlight("StatusLineNC", { bg = palette.base[3], fg = palette.base[3], clear = true })
 
 		highlight("VertSplit", { bg = palette.base[3], fg = palette.base[1], clear = true })
-		highlight("WinSeparator", { bg = palette.base[3], fg = palette.base[1], clear = true })
+		highlight("WinSeparator", { bg = palette.base[3], fg = palette.base[2], clear = true })
 		highlight("EndOfBuffer", { fg = palette.base[6], clear = true })
 
 		highlight("CursorLine", { bg = palette.base[4], clear = true })
@@ -107,7 +107,7 @@ highlights.colors = function()
 		highlight("NvimTreeNormal", { bg = palette.base[2], fg = palette.base[10], clear = true })
 		highlight("NvimTreeNormalNC", { bg = palette.base[2], fg = palette.base[10], clear = true })
 		highlight("NvimTreeSignColumn", { bg = palette.base[2], fg = palette.base[10], clear = true })
-		highlight("NvimTreeWinSeparator", { bg = palette.base[3], fg = palette.base[3], clear = true })
+		highlight("NvimTreeWinSeparator", { bg = palette.base[3], fg = palette.base[2], clear = true })
 		highlight("NvimTreeEndOfBuffer", { fg = palette.base[2], clear = true })
 		highlight("NvimTreeCursorLine", { bg = palette.base[3], clear = true })
 
