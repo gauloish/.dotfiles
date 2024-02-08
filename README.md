@@ -6,15 +6,22 @@ Dotfiles for Linux Fedora.
 
 > **_NOTE:_** The installation assumes that you are in ```~/``` directory.
 
-Install **Git**:
+Install **Wget**:
 
 ```shell
-sudo dnf install git
+sudo dnf install wget
 ```
 
-And install **Git Credential Manager**:
+Download the ```install.sh``` file:
 
 ```shell
-curl -L https://aka.ms/gcm/linux-install-source.sh | sh
-git-credential-manager configure
+wget https://github.com/gauloish/.dotfiles/blob/main/install.sh
 ```
+
+Run ```install.sh``` file to install dotfiles:
+
+```shell
+sh install.sh
+```
+
+Enjoy and have fun.
