@@ -3,6 +3,8 @@
 REPO=$HOME/.dotfiles
 CONF=$HOME/.config
 
+URL=https://github.com/gauloish/.dotfiles
+
 log() {
 	declare -A colors
 
@@ -22,37 +24,21 @@ log() {
 }
 
 # Stay Home:
-    cd $HOME
+	cd $HOME
 
-#----- Updgrade System
+# ----- Updgrade System
 
-#Upgrade:
+# Upgrade:
 	log "Upgrading System" "yellow"
 	sudo dnf upgrade
 
-#----- Install Dependencies
+# ----- Install Dependencies
 
-#Zip:
-	log "Installing Zip." "magenta"
-	sudo dnf install zip
+# Utilitaries (Zip, Unzip, Wget, Curl and Git):
+	log "Installing Utilitaries (Zip, Unzip, Wget, Curl and Git)." "magenta"
+	sudo dnf install zip unzip wget curl git
 
-#Unzip:
-	log "Installing Unzip." "magenta"
-	sudo dnf install unzip
-
-#Wget:
-	log "Installing Wget." "magenta"
-	sudo dnf install wget
-
-#Curl:
-	log "Installing Curl." "magenta"
-	sudo dnf install curl
-
-#Git:
-	log "Installing Git." "magente"
-	sudo dnf install git
-
-#Git Credential Manager:
+# Git Credential Manager:
 	log "Installing Git Credential Manager." "magenta"
 	curl -L https://aka.ms/gcm/linux-install-source.sh | sh
 	git-credential-manager configure
@@ -60,10 +46,11 @@ log() {
 	rm $REPO/dotnet-install.sh
 
 # Create Dotfiles Directory:
-    rm -f $REPO
-    mkdir .dotfiles
-    cd .dotfiles
+	rm -r -f $REPO
+	mkdir .dotfiles
+	cd .dotfiles
 
 # Initialize Git Repository:
 	git init
- 	git pull https://github.com/gauloish/.dotfiles
+ 	git pull $URL
+ 	git remote add origin $URL
