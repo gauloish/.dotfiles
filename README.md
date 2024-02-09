@@ -15,7 +15,7 @@ sudo dnf install wget
 Download the ```install.sh``` file:
 
 ```shell
-wget https://github.com/gauloish/.dotfiles/blob/main/install.sh
+wget https://github.com/gauloish/.dotfiles/raw/main/install.sh
 ```
 
 Run ```install.sh``` file to install dotfiles:
