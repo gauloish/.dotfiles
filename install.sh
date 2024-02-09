@@ -55,7 +55,7 @@ log() {
 #Git Credential Manager:
 	log "Installing Git Credential Manager." "magenta"
 	curl -L https://aka.ms/gcm/linux-install-source.sh | sh
-    git-credential-manager configure
+	git-credential-manager configure
 
 	rm $REPO/dotnet-install.sh
 
@@ -63,3 +63,7 @@ log() {
     rm -f $REPO
     mkdir .dotfiles
     cd .dotfiles
+
+# Initialize Git Repository:
+	git init
+ 	git pull https://github.com/gauloish/.dotfiles
