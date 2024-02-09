@@ -1,1 +1,14 @@
-
+[init]
+	defaultBranch = main
+[user]
+	email = 125079293+gauloish@users.noreply.github.com
+	name = Gaulöis
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+	credentialStore = cache
+	cacheOptions = --timeout 3600
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[core]
+	editor = nvim
