@@ -39,6 +39,7 @@ log() {
 	sudo dnf install zip unzip wget curl git
 
 # Setting Git:
+	rm -f .gitconfig
 	wget $URL/blob/main/git/.gitconfig
 
 # Git Credential Manager:
