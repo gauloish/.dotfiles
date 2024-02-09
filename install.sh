@@ -40,7 +40,7 @@ log() {
 
 # Setting Git:
 	rm -f .gitconfig
-	wget $URL/blob/main/git/.gitconfig
+	wget $URL/raw/main/git/.gitconfig
 
 # Git Credential Manager:
 	log "Installing Git Credential Manager." "magenta"
