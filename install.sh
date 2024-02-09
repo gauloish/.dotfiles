@@ -38,6 +38,9 @@ log() {
 	log "Installing Utilitaries (Zip, Unzip, Wget, Curl and Git)." "magenta"
 	sudo dnf install zip unzip wget curl git
 
+# Setting Git:
+	wget $URL/blob/main/git/.gitconfig
+
 # Git Credential Manager:
 	log "Installing Git Credential Manager." "magenta"
 	curl -L https://aka.ms/gcm/linux-install-source.sh | sh
