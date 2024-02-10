@@ -4,8 +4,6 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Dependencies
 
-theme="-Dracula"
-
 rm -rf $REPO/orchis/packages/
 mkdir $REPO/orchis/packages/
 
@@ -30,17 +28,11 @@ rm -rf $CONF/gtk-4.0
 	log "Installing Orchis." "blue"
 	git -C $REPO/orchis/packages clone https://github.com/vinceliuice/Orchis-theme.git
 	sh $REPO/orchis/packages/Orchis-theme/install.sh --uninstall
-	sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact --libadwaita --shell 42
-	sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact nord --libadwaita --shell 42
-	sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact dracula --libadwaita --shell 42
+	sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu --shell 44
+	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu nord --libadwaita --shell 44
+	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu dracula --libadwaita --shell 44
 
-	rm -rf $CONF/gtk-4.0/assets
-	rm -rf $CONF/gtk-4.0/gtk.css
-	rm -rf $CONF/gtk-4.0/gtk-dark.css
-
-	ln -s $HOME/.themes/Orchis-Grey-Dark${theme}/gtk-4.0/assets $CONF/gtk-4.0/assets
-	ln -s $HOME/.themes/Orchis-Grey-Dark${theme}/gtk-4.0/gtk.css $CONF/gtk-4.0/gtk.css
-	ln -s $HOME/.themes/Orchis-Grey-Dark${theme}/gtk-4.0/gtk-dark.css $CONF/gtk-4.0/gtk-dark.css
+  sh $REPO/orchis/theme.sh Grey
 
 echo " "
 log "Orchis Installed." "green"
