@@ -32,7 +32,5 @@ rm -rf $CONF/gtk-4.0
 	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu nord --libadwaita --shell 44
 	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu dracula --libadwaita --shell 44
 
-  sh $REPO/orchis/theme.sh Grey
-
 echo " "
 log "Orchis Installed." "green"
