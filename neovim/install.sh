@@ -51,10 +51,17 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Configure Neovim
 
-#Link:
 	log "Linking Neovim Configuration!" "yellow"
-	rm $CONF/nvim
-	ln -s $REPO/neovim/nvim $CONF/nvim
+  rm -rf ~/.config/nvim
+  rm -rf ~/.local/share/nvim
+
+#Nv Chad:
+	log "Installing Nv Chad Configuration" "blue"
+  git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+
+#Link:
+	#rm $CONF/nvim
+	#ln -s $REPO/neovim/nvim $CONF/nvim
 
 	echo " "
 	log "Neovim Configured." "green"
