@@ -3,6 +3,8 @@
 source $HOME/.dotfiles/utils.sh
 
 if [ "$1" == "Grey" ] || [ "$1" == "Dracula" ] || [ "$1" == "Nord" ]; then
+  mkdir $CONF/gtk-4.0
+
   rm -rf $CONF/gtk-4.0/assets
   rm -rf $CONF/gtk-4.0/gtk.css
   rm -rf $CONF/gtk-4.0/gtk-dark.css
