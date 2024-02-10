@@ -14,30 +14,20 @@ mkdir $REPO/fonts/.fonts/
 	log "Installing Nerd Fonts." "blue"
 	echo " "
 	
-	version="v2.3.3"
+	version="v3.1.1"
 	url="https://github.com/ryanoasis/nerd-fonts/releases/download"
 
 	names[1]="Cascadia Cove"
 	names[2]="Fantasque Sans"
-	names[3]="Fira Code"
-	names[4]="Hasklig"
-	names[5]="Iosevka"
-	names[6]="Jet Brains"
-	names[7]="Lilex"
-	names[8]="Monoid"
-	names[9]="Victor"
+	names[3]="Jet Brains"
+	names[4]="Victor"
 
 	fonts[1]="CascadiaCode"
 	fonts[2]="FantasqueSansMono"
-	fonts[3]="FiraCode"
-	fonts[4]="Hasklig"
-	fonts[5]="Iosevka"
-	fonts[6]="JetBrainsMono"
-	fonts[7]="Lilex"
-	fonts[8]="Monoid"
-	fonts[9]="VictorMono"
+	fonts[3]="JetBrainsMono"
+	fonts[4]="VictorMono"
 
-	for index in $(seq 9); do
+	for index in $(seq 4); do
 		log "Installing ${names[$index]} Font." "blue"
 		echo " "
 
