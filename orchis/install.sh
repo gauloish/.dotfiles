@@ -28,9 +28,9 @@ rm -rf $CONF/gtk-4.0
 	log "Installing Orchis." "blue"
 	git -C $REPO/orchis/packages clone https://github.com/vinceliuice/Orchis-theme.git
 	sh $REPO/orchis/packages/Orchis-theme/install.sh --uninstall
-	sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu --shell 44
-	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu nord --libadwaita --shell 44
-	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact black submenu dracula --libadwaita --shell 44
+	sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact submenu --shell 44
+	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact submenu nord --libadwaita --shell 44
+	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact submenu dracula --libadwaita --shell 44
 
 echo " "
 log "Orchis Installed." "green"
