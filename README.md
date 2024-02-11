@@ -24,4 +24,10 @@ Run ```install.sh``` file to install dotfiles:
 sh install.sh
 ```
 
+Install grub theme:
+
+```shell
+sh $HOME/.dotfiles/grub/install.sh #(1080p or ultrawide)
+```
+
 Enjoy and have fun.
