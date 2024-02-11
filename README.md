@@ -34,7 +34,7 @@ sh $HOME/.dotfiles/grub/install.sh #(1080p or ultrawide)
 
 ## Windows
 
-Open a PowerShell terminal as Administrator and change the execution policies:
+Open a PowerShell Terminal and change the execution policies:
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned
