@@ -1,7 +1,7 @@
-$REPO = $HOME/.dotfiles
-$CONF = $HOME/
+$REPO = $HOME\.dotfiles
+$CONF = $HOME
 
-$URL = https://github.com/gauloish/.dotfiles
+$URL = "https://github.com/gauloish/.dotfiles"
 
 echo $REPO
 echo $CONF
