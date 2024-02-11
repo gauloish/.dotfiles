@@ -1,36 +1,27 @@
 local M = {}
 
 M.options = {
-  nvchad_branch = "v3.0",
+    nvchad_branch = "v2.0",
 }
 
 M.ui = {
-    ------------------------------- base46 -------------------------------------
-    -- hl = highlights
-    -- hl_add = {},
-    -- hl_override = {},
-    -- changed_themes = {},
-    theme_toggle = { "onedark", "one_light" },
-    theme = "onedark", -- default theme
-    transparency = false,
-
     -- cmp themeing
     cmp = {
         icons = true,
         lspkind_text = true,
         style = "default", -- default/flat_light/flat_dark/atom/atom_colored
         border_color = "grey_fg", -- only applicable for "default" style, use color names from base30 variables
-        selected_item_bg = "colored", -- colored / simple
+        selected_item_bg = "simple", -- colored / simple
     },
 
     telescope = { style = "borderless" }, -- borderless / bordered
 
     ------------------------------- nvchad_ui modules -----------------------------
     statusline = {
-        theme = "default", -- default/vscode/vscode_colored/minimal
+        theme = "minimal", -- default/vscode/vscode_colored/minimal
         -- default/round/block/arrow separators work only for default statusline theme
         -- round and block will work for minimal theme only
-        separator_style = "default",
+        separator_style = "round",
         overriden_modules = nil,
     },
 
@@ -38,13 +29,13 @@ M.ui = {
     tabufline = {
         show_numbers = false,
         enabled = true,
-        lazyload = true,
+        lazyload = false,
         overriden_modules = nil,
     },
 
     -- nvdash (dashboard)
     nvdash = {
-        load_on_startup = true,
+        load_on_startup = false,
 
         header = {
             "           ▄ ▄                   ",
@@ -71,22 +62,10 @@ M.ui = {
     cheatsheet = { theme = "grid" }, -- simple/grid
 
     lsp = {
-        signature = true,
-        semantic_tokens = false,
-    },
-
-    term = {
-        sizes = { sp = 0.3, vsp = 0.2 },
-        float = {
-            relative = "editor",
-            row = 0.3,
-            col = 0.25,
-            width = 0.5,
-            height = 0.4,
-            border = "single",
-        },
-        behavior = {
-            auto_insert = true,
+        -- show function signatures i.e args as you type
+        signature = {
+            disabled = false,
+            silent = true, -- silences 'no signature help available' message from appearing
         },
     },
 }
@@ -96,27 +75,5 @@ M.plugins = "" -- path i.e "custom.plugins", so make custom/plugins.lua file
 M.lazy_nvim = require "plugins.configs.lazy_nvim" -- config for lazy.nvim startup options
 
 M.mappings = require "core.mappings"
-
-M.base46 = {
-    integrations = {
-        "blankline",
-        "cmp",
-        "defaults",
-        "devicons",
-        "git",
-        "lsp",
-        "mason",
-        "nvchad_updater",
-        "nvcheatsheet",
-        "nvdash",
-        "nvimtree",
-        "statusline",
-        "syntax",
-        "treesitter",
-        "tbline",
-        "telescope",
-        "whichkey",
-    },
-}
 
 return M
