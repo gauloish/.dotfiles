@@ -10,25 +10,25 @@ Guide to install dotfiles in Fedora and Windows
 
 Install **Wget**:
 
-```bash
+```shell
 sudo dnf install wget
 ```
 
 Download the ```install.sh``` file:
 
-```bash
+```shell
 wget https://github.com/gauloish/.dotfiles/raw/main/install.sh
 ```
 
 Run ```install.sh``` file to install dotfiles:
 
-```bash
+```shell
 sh install.sh
 ```
 
 Install grub theme:
 
-```bash
+```shell
 sh $HOME/.dotfiles/grub/install.sh #(1080p or ultrawide)
 ```
 
