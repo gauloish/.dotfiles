@@ -50,8 +50,8 @@ mkdir $REPO/fonts/.fonts/
 
 #Link:
 	log "Linking Fonts!" "yellow"
-	rm -r $HOME/.fonts
-	ln -s $REPO/fonts/.fonts $HOME/.fonts
+	rm -rf $HOME/.fonts/
+	ln -s $REPO/fonts/.fonts/ $HOME/.fonts/
 
 	echo " "
 	log "Nerd Fonts Configured." "green"

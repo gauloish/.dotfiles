@@ -47,10 +47,10 @@ log() {
 	curl -L https://aka.ms/gcm/linux-install-source.sh | sh
 	git-credential-manager configure
 
-	rm dotnet-install.sh
+	rm -f dotnet-install.sh
 
 # Create Dotfiles Directory:
-	rm -r -f $REPO
+	rm -rf $REPO
 	mkdir .dotfiles
 	cd .dotfiles
 

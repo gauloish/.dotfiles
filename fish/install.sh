@@ -12,11 +12,11 @@ source $HOME/.dotfiles/utils.sh
 
 #Link:
 	log "Linking Fish Configuration!" "yellow"
-	rm $CONF/fish/config.fish
+	rm -f $CONF/fish/config.fish
 	ln -s $REPO/fish/config.fish $CONF/fish/config.fish
 
 	mkdir $CONF/fish/functions/
-	rm $CONF/fish/functions/keymaps.fish
+	rm -f $CONF/fish/functions/keymaps.fish
 	ln -s $REPO/fish/keymaps.fish $CONF/fish/functions/keymaps.fish
 
 	echo " "
