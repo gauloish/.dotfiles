@@ -1,10 +1,12 @@
 # My Dotfiles
 
-Dotfiles for Linux Fedora.
+Dotfiles for Fedora and Windows.
 
 # Installation
 
-> **_NOTE:_** The installation assumes that you are in ```~/``` directory.
+Guide to install dotfiles in Fedora and Windows
+
+## Fedora
 
 Install **Wget**:
 
@@ -29,5 +31,9 @@ Install grub theme:
 ```shell
 sh $HOME/.dotfiles/grub/install.sh #(1080p or ultrawide)
 ```
+
+## Windows
+
+> **...**
 
 Enjoy and have fun.
