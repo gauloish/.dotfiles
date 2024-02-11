@@ -58,3 +58,6 @@ log() {
 	git init
  	git pull $URL
  	git remote add origin $URL
+
+# Running Setup:
+    sh $REPO/setup.sh
