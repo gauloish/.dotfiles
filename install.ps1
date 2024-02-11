@@ -1,5 +1,5 @@
-$REPO = $HOME\.dotfiles
-$CONF = $HOME
+$REPO = "oi"
+$CONF = "ola"
 
 $URL = "https://github.com/gauloish/.dotfiles"
 
