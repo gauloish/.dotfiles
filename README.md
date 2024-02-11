@@ -34,6 +34,22 @@ sh $HOME/.dotfiles/grub/install.sh #(1080p or ultrawide)
 
 ## Windows
 
-> **...**
+Open a PowerShell terminal as Administrator and change the execution policies:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned
+```
+
+Download the ```install.ps1``` file:
+
+```powershell
+Invoke-WebRequest -Uri "https://github.com/gauloish/.dotfiles/raw/main/install.ps1" -OutFile "C:\install.ps1"
+```
+
+Run ```install.ps1``` file to install dotfiles:
+
+```shell
+cd "C:\"; .\install.ps1
+```
 
 Enjoy and have fun.
