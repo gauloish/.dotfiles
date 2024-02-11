@@ -4,8 +4,8 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Dependencies
 
-rm -rf $REPO/orchis/packages/
-mkdir $REPO/orchis/packages/
+rm -rf $REPO/orchis/package/
+mkdir $REPO/orchis/package/
 
 rm -rf $HOME/.themes/
 mkdir $HOME/.themes/
@@ -26,13 +26,13 @@ rm -rf $CONF/gtk-4.0
 
 #Orchis:
 	log "Installing Orchis." "blue"
-	git -C $REPO/orchis/packages clone https://github.com/vinceliuice/Orchis-theme.git
-	sh $REPO/orchis/packages/Orchis-theme/install.sh --uninstall
-	sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact submenu --shell 44
+	git -C $REPO/orchis/package clone https://github.com/vinceliuice/Orchis-theme.git
+	sh $REPO/orchis/package/Orchis-theme/install.sh --uninstall
+	sh $REPO/orchis/package/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact submenu --shell 44
 	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact submenu nord --libadwaita --shell 44
 	#sh $REPO/orchis/packages/Orchis-theme/install.sh --theme default grey --size standard --tweaks solid compact submenu dracula --libadwaita --shell 44
   
-  sh $REPO/orchis/theme.sh Grey
+    sh $REPO/orchis/theme.sh Grey
 
 echo " "
 log "Orchis Installed." "green"
