@@ -1,7 +1,0 @@
-local debuggers = {}
-
---[[
-...
---]]
-
-return debuggers
