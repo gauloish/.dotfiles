@@ -12,10 +12,18 @@ source $HOME/.dotfiles/utils.sh
 
 #Link:
 	log "Linking Fish Configuration!" "yellow"
+
+    if [ ! -d "$CONF/fish/" ]; then
+        mkdir $CONF/fish
+    fi
+
 	rm -f $CONF/fish/config.fish
 	ln -s $REPO/fish/config.fish $CONF/fish/config.fish
 
-	mkdir $CONF/fish/functions/
+    if [ ! -d "$CONF/fish/functions/" ]; then
+        mkdir $CONF/fish/functions
+    fi
+
 	rm -f $CONF/fish/functions/keymaps.fish
 	ln -s $REPO/fish/keymaps.fish $CONF/fish/functions/keymaps.fish
 
