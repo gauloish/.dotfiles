@@ -10,7 +10,7 @@ $URL = "https://github.com/gauloish/.dotfiles"
 	echo "Installing Scoop."
 
 	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-	#Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+	Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
 # ----- Install Dependencies
 
