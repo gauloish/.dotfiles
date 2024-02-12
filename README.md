@@ -34,13 +34,13 @@ sh $HOME/.dotfiles/grub/install.sh #(1080p or ultrawide)
 
 ## Windows
 
-Open a PowerShell Terminal and change the execution policies:
+Open a PowerShell Terminal (as administrator) and change the execution policies:
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-Download the ```install.ps1``` file:
+Now, open other PowerShell terminal (not as administrator) and download the ```install.ps1``` file:
 
 ```powershell
 Invoke-WebRequest -Uri "https://github.com/gauloish/.dotfiles/raw/main/install.ps1" -OutFile "C:\install.ps1"
