@@ -4,11 +4,11 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Fonts
 
-rm -rf $REPO/fonts/packages/
-mkdir $REPO/fonts/packages/
+rm -rf $REPO/fonts/packages
+mkdir $REPO/fonts/packages
 
-rm -rf $REPO/fonts/.fonts/
-mkdir $REPO/fonts/.fonts/
+rm -rf $REPO/fonts/.fonts
+mkdir $REPO/fonts/.fonts
 
 #Nerd Fonts:
 	log "Installing Nerd Fonts." "blue"
@@ -50,8 +50,8 @@ mkdir $REPO/fonts/.fonts/
 
 #Link:
 	log "Linking Fonts!" "yellow"
-	rm -rf $HOME/.fonts/
-	ln -s $REPO/fonts/.fonts/ $HOME/.fonts/
+	rm -rf $HOME/.fonts
+	ln -s $REPO/fonts/.fonts $HOME/.fonts
 
 	echo " "
 	log "Nerd Fonts Configured." "green"
