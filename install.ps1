@@ -79,9 +79,6 @@ $URL = "https://github.com/gauloish/.dotfiles"
 	scoop install main/lua
 	scoop install main/luarocks
 
-# Latex:
-	scoop install main/latex
-
 # Utilitary:
 	scoop install main/grep
 	scoop install main/ripgrep
