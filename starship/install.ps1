@@ -5,4 +5,4 @@
 
 	scoop install starship
 
- 	mklink "$REPO\starship\starship.toml" "$CONF\starchip.toml"
+	New-Item -Path "$CONF\starchip.toml" -ItemType SymbolicLink -Value "$REPO\starship\starship.toml"
