@@ -43,13 +43,13 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Now, open other PowerShell terminal (not as administrator) and download the ```install.ps1``` file:
 
 ```powershell
-Invoke-WebRequest -Uri "https://github.com/gauloish/.dotfiles/raw/main/install.ps1" -OutFile "C:\install.ps1"
+Invoke-WebRequest -Uri "https://github.com/gauloish/.dotfiles/raw/main/install.ps1" -OutFile "$HOME\install.ps1"
 ```
 
 Run ```install.ps1``` file to install dotfiles:
 
 ```shell
-cd "C:\"; .\install.ps1
+cd $HOME; .\install.ps1
 ```
 
 Enjoy and have fun.
