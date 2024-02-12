@@ -87,6 +87,9 @@ $URL = "https://github.com/gauloish/.dotfiles"
 # Starship:
 	scoop install main/starship
 
+# Neovim:
+	scoop install main/neovim
+
 # Create Dotfiles Directory:
 	#rm -Force $REPO
 	#mkdir .dotfiles
