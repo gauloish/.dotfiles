@@ -4,8 +4,7 @@
 	email = 125079293+gauloish@users.noreply.github.com
 	name = gauloish
 [credential]
-	helper = 
-	helper = /usr/local/bin/git-credential-manager
+	helper = manager
 	credentialStore = cache
 	cacheOptions = --timeout 3600
 [credential "https://dev.azure.com"]
