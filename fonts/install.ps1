@@ -1,5 +1,5 @@
 # Nerd Fonts:
-	echo "Installing Git Credential Manager."
+	echo "Installing Nerd Fonts."
 	
 	scoop bucket add nerd-fonts
 
