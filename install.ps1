@@ -19,6 +19,7 @@ $URL = "https://github.com/gauloish/.dotfiles"
 
 	scoop bucket add main
 
+	scoop install sudo
 	scoop install zip
 	scoop install unzip
 	scoop install wget
