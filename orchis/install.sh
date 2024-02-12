@@ -4,11 +4,11 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install Dependencies
 
-rm -rf $REPO/orchis/package/
-mkdir $REPO/orchis/package/
+rm -rf $REPO/orchis/package
+mkdir $REPO/orchis/package
 
-rm -rf $HOME/.themes/
-mkdir $HOME/.themes/
+rm -rf $HOME/.themes
+mkdir $HOME/.themes
 
 rm -rf $CONF/gtk-4.0
 
