@@ -5,4 +5,5 @@
 
 	scoop install starship
 
-	sudo New-Item -Path "$CONF\starchip.toml" -ItemType SymbolicLink -Value "$REPO\starship\starship.toml"
+	rm -Force "$CONF\starship.toml"
+	ln -s "$REPO\starship\starship.toml" "$CONF\starship.toml"
