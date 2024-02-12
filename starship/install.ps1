@@ -6,4 +6,4 @@
 	scoop install starship
 
 	rm -Force "$CONF\starship.toml"
-	ln -s "$REPO\starship\starship.toml" "$CONF\starship.toml"
+	sudo ln -s "$REPO\starship\starship.toml" "$CONF\starship.toml"
