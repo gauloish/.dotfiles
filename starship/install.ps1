@@ -5,4 +5,4 @@
 
 	scoop install starship
 
-	New-Item -Path "$CONF\starchip.toml" -ItemType Junction -Value "$REPO\starship\starship.toml"
+	sudo New-Item -Path "$CONF\starchip.toml" -ItemType Junction -Value "$REPO\starship\starship.toml"
