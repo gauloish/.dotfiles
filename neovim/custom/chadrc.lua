@@ -22,7 +22,9 @@ M.ui = {
         -- default/round/block/arrow separators work only for default statusline theme
         -- round and block will work for minimal theme only
         separator_style = "round",
-        overriden_modules = nil,
+        overriden_modules = function(modules)
+            table.insert(modules, 1, " ")
+        end,
     },
 
     -- lazyload it when there are 1+ buffers
@@ -69,5 +71,9 @@ M.ui = {
         },
     },
 }
+
+-- M.plugins = "custom.plugins"
+
+M.mappings = require "custom.mappings"
 
 return M
