@@ -1,5 +1,4 @@
 fonts/.fonts/
-fonts/packages/
-orchis/packages/
-swidow/packages/
-neovim/nvim/files/theme.txt
+fonts/package/
+orchis/package/
+swidow/package/
