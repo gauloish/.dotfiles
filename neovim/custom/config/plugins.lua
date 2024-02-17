@@ -18,6 +18,10 @@ local plugins = {
             },
         },
     },
+    { -- Completion
+        "hrsh7th/nvim-cmp",
+        lazy = false,
+    },
 }
 
 return plugins
