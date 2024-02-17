@@ -1,5 +1,23 @@
-local M = {}
+local plugins = {
+    { -- Treesitter
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            auto_install = true,
+            highlight = {
+                enable = true,
+                disable = { "help" },
+            },
+            indent = {
+                enable = true,
+                desable = {
+                    "python",
+                },
+            },
+            playground = {
+                enable = true,
+            },
+        },
+    },
+}
 
--- [[ ... ]]
-
-return M
+return plugins
