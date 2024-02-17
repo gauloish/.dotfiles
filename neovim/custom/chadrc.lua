@@ -72,8 +72,7 @@ M.ui = {
     },
 }
 
--- M.plugins = "custom.plugins"
-
-M.mappings = require "custom.mappings"
+M.plugins = "custom.config.plugins"
+M.mappings = require "custom.config.mappings"
 
 return M
