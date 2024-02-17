@@ -22,7 +22,7 @@ local plugins = {
         "hrsh7th/nvim-cmp",
         lazy = false,
     },
-    {
+    { -- Wilder
         "gauloish/wilder.nvim",
         lazy = false,
         config = function()
@@ -75,7 +75,17 @@ local plugins = {
                 ),
             })
         end,
-    }
+    },
+    { -- Documentation
+        "danymat/neogen",
+        lazy = true,
+        config = function()
+            require("neogen").setup({
+                snippet_engine = "luasnip",
+                placeholders_hl = "None",
+            })
+        end
+    },
 }
 
 return plugins
