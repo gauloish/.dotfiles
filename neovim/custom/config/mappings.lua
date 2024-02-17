@@ -1,4 +1,4 @@
-local M = {}
+local mappings = {}
 
 local options = {
     move = {silent = false, noremap = true},
@@ -7,7 +7,7 @@ local options = {
     delete = {silent = false, noremap = true},
 }
 
-M.move = {
+mappings.move = {
     n = {
         ["<a-h>"] = {[[<c-w>h]], "Move cursor to left window", opts = options.move},
         ["<a-j>"] = {[[<c-w>j]], "Move cursor to down window", opts = options.move},
@@ -22,4 +22,4 @@ M.move = {
     },
 }
 
-return M
+return mappings
