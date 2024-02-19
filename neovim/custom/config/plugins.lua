@@ -142,6 +142,8 @@ local plugins = {
                 changedelete = { text = "~" },
                 untracked = { text = "│" },
             }
+
+            return gitsigns
         end,
     }
 }
