@@ -129,6 +129,21 @@ local plugins = {
             })
         end
     },
+    { -- Gitsigns (Git Signs)
+        "lewis6991/gitsigns.nvim",
+        opts = function()
+            local gitsigns = require("plugins.configs.others").gitsigns
+
+            gitsigns.signs = {
+                add = { text = "│" },
+                change = { text = "│" },
+                delete = { text = "-" },
+                topdelete = { text = "‾" },
+                changedelete = { text = "~" },
+                untracked = { text = "│" },
+            }
+        end,
+    }
 }
 
 return plugins
