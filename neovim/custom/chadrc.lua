@@ -1,10 +1,8 @@
 local M = {}
 
-M.options = {
-    nvchad_branch = "v2.0",
-}
-
 M.ui = {
+    theme = "catppuccin",
+
     -- cmp themeing
     cmp = {
         icons = true,
@@ -18,9 +16,7 @@ M.ui = {
 
     ------------------------------- nvchad_ui modules -----------------------------
     statusline = {
-        theme = "minimal", -- default/vscode/vscode_colored/minimal
-        -- default/round/block/arrow separators work only for default statusline theme
-        -- round and block will work for minimal theme only
+        theme = "minimal",
         separator_style = "round",
         overriden_modules = function(modules)
             table.insert(modules, 1, " ")
@@ -32,7 +28,6 @@ M.ui = {
         show_numbers = false,
         enabled = true,
         lazyload = false,
-        overriden_modules = nil,
     },
 
     -- nvdash (dashboard)
@@ -58,6 +53,7 @@ M.ui = {
             { "  Bookmarks", "Spc m a", "Telescope marks" },
             { "  Themes", "Spc t h", "Telescope themes" },
             { "  Mappings", "Spc c h", "NvCheatsheet" },
+            { "  Settings", "Spc s t", "NvSettings"},
         },
     },
 
