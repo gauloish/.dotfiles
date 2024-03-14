@@ -140,11 +140,89 @@ local plugins = {
                 delete = { text = "-" },
                 topdelete = { text = "‾" },
                 changedelete = { text = "~" },
-                untracked = { text = "│" },
+                untracked = { text = " " },
             }
 
             return gitsigns
         end,
+    },
+    { -- Ufo (Folding)
+        "kevinhwang91/nvim-ufo",
+        dependencies = {
+            "kevinhwang91/promise-async",
+            "nvim-treesitter/playground",
+        },
+        lazy = false,
+        config = function()
+            local fold = require("ufo")
+
+            local handler = function(texts, _, second, _, _)
+                table.insert(texts, { " ... ", "Comment" })
+
+                local line = vim.fn["line"](".")
+                local column = vim.fn["col"](".")
+
+                local text = vim.fn["getline"](second)
+
+                local position = 1
+
+                for index = 1, #text do
+                    local char = text:sub(index, index)
+
+                    if char ~= " " and char ~= "	" then -- checking spaces and tabulations!!!
+                        position = index
+
+                        break
+                    end
+                end
+
+                local length = #text
+
+                for index = position, length do
+                    vim.fn["cursor"](second, index)
+
+                    local group = require("nvim-treesitter-playground.hl-info").get_treesitter_hl()
+
+                    group = group[#group]
+
+                    if group then
+                        group = group:match("%* %*%*(.*)%*%*")
+                    else
+                        group = vim.fn["synID"](second, index, 1)
+                    end
+
+                    if not group or group == 0 or group == "" then
+                        group = "Comment"
+                    end
+
+                    table.insert(texts, { text:sub(index, index), group })
+                end
+
+                vim.fn["cursor"](line, column)
+
+                return texts
+            end
+
+            fold.setup({
+                fold_virt_text_handler = handler,
+                provider_selector = function(_, _, _)
+                    return { "treesitter", "indent" }
+                end,
+                preview = {
+                    win_config = {
+                        winhighlight = "Normal:CmpBorder",
+                        maxheight = 20,
+                        winblend = 0,
+                    },
+                    mappings = {
+                        scrollB = "H",
+                        scrollD = "J",
+                        scrollU = "K",
+                        scrollF = "L",
+                    },
+                },
+            })
+        end
     }
 }
 
