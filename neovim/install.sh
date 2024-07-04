@@ -15,6 +15,10 @@ source $HOME/.dotfiles/utils.sh
 	log "Installing C++ Dependencies." "blue"
 	sudo dnf install gcc-c++
 
+#Java:
+    log "Installing Java Dependencies." "blue"
+    sudo dnf install java java-devel
+
 #Python:
 	log "Installing Python Dependencies." "blue"
 	sudo dnf install -y python
