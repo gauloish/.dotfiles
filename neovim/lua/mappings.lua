@@ -1,9 +1,6 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-local nomap = vim.keymap.del
-
-local options = {silent = false, noremap = true}
 
 -- Move in Window
 map("n", "<A-h>", "<c-w>h", {silent = false, noremap = true, desc = "Move cursor to left window"})
