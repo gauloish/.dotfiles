@@ -6,22 +6,22 @@ local nomap = vim.keymap.del
 local options = {silent = false, noremap = true}
 
 -- Move in Window
-map("n", "<A-h>", [[<c-w>h]], {desc = "Move cursor to left window", opts = options})
-map("n", "<A-j>", [[<c-w>j]], {desc = "Move cursor to down window", opts = options})
-map("n", "<A-k>", [[<c-w>k]], {desc = "Move cursor to up window", opts = options})
-map("n", "<A-l>", [[<c-w>l]], {desc = "Move cursor to right window", opts = options})
+map("n", "<A-h>", "<c-w>h", {silent = false, noremap = true, desc = "Move cursor to left window"})
+map("n", "<A-j>", "<c-w>j", {silent = false, noremap = true, desc = "Move cursor to down window"})
+map("n", "<A-k>", "<c-w>k", {silent = false, noremap = true, desc = "Move cursor to up window"})
+map("n", "<A-l>", "<c-w>l", {silent = false, noremap = true, desc = "Move cursor to right window"})
 
 -- Move in Code
-map("i", "<A-h>", [[<Left>]], {desc = "Move cursor to left", opts = options})
-map("i", "<A-j>", [[<Down>]], {desc = "Move cursor to down", opts = options})
-map("i", "<A-k>", [[<Up>]], {desc = "Move cursor to up", opts = options})
-map("i", "<A-l>", [[<Right>]], {desc = "Move cursor to right", opts = options})
+map("i", "<A-h>", "<Left>", {silent = false, noremap = true, desc = "Move cursor to left"})
+map("i", "<A-j>", "<Down>", {silent = false, noremap = true, desc = "Move cursor to down"})
+map("i", "<A-k>", "<Up>", {silent = false, noremap = true, desc = "Move cursor to up"})
+map("i", "<A-l>", "<Right>", {silent = false, noremap = true, desc = "Move cursor to right"})
 
 -- Generate Code Documentation
-map("n", "<A-d>f", function() require("neogen").generate({type = "func"}) end, {desc = "Generate function documentation", opts = options})
-map("n", "<A-d>c", function() require("neogen").generate({type = "class"}) end, {desc = "Generate class documentation", opts = options})
-map("n", "<A-d>t", function() require("neogen").generate({type = "type"}) end, {desc = "Generate type documentation", opts = options})
-map("n", "<A-d>d", function() require("neogen").generate({type = "file"}) end, {desc = "Generate file documentation", opts = options})
+map("n", "<A-d>f", function() require("neogen").generate({type = "func"}) end, {silent = false, noremap = true, desc = "Generate function documentation"})
+map("n", "<A-d>c", function() require("neogen").generate({type = "class"}) end, {silent = false, noremap = true, desc = "Generate class documentation"})
+map("n", "<A-d>t", function() require("neogen").generate({type = "type"}) end, {silent = false, noremap = true, desc = "Generate type documentation"})
+map("n", "<A-d>d", function() require("neogen").generate({type = "file"}) end, {silent = false, noremap = true, desc = "Generate file documentation"})
 
 -- Open Settings File
-map("n", "<leader>st", "NvSettings", {desc = "Open settings file", opts = options.general})
+map("n", "<leader>st", "NvSettings", {silent = false, noremap = true, desc = "Open settings file"})
