@@ -131,6 +131,7 @@ local plugins = {
     },
     { -- Gitsigns (Git Signs)
         "lewis6991/gitsigns.nvim",
+        lazy = false,
         opts = function()
             local gitsigns = require("nvchad.configs.gitsigns")
 
@@ -223,7 +224,15 @@ local plugins = {
                 },
             })
         end
-    }
+    },
+    -- Comment (Code Comment)
+    {
+        "numToStr/Comment.nvim",
+        lazy = false,
+        config = function()
+            require("Comment").setup()
+        end,
+    },
 }
 
 return plugins
