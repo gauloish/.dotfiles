@@ -18,6 +18,15 @@ local plugins = {
             },
         },
     },
+    { -- Mason Registry (LSP Manager Core)
+        "mason-org/mason-registry",
+    },
+    { -- LspConfig (Language Server Protocol)
+        "neovim/nvim-lspconfig",
+        config = function()
+            require("configs.lspconfig")
+        end,
+    },
     { -- Cmp (Code Completion)
         "hrsh7th/nvim-cmp",
         lazy = false,
