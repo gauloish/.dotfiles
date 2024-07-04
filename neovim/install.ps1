@@ -55,5 +55,5 @@
 	git clone https://github.com/NvChad/NvChad $ENV:USERPROFILE\AppData\Local\nvim --depth 1
 
 # Link:
-	rm -Force "$HOME\AppData\Local\nvim\lua\custom"
-	sudo ln -s "$REPO\neovim\custom" "$HOME\AppData\Local\nvim\lua\custom"
+	rm -Force "$HOME\AppData\Local\nvim\lua"
+	sudo ln -s "$REPO\neovim\lua" "$HOME\AppData\Local\nvim\lua"

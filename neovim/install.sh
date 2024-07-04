@@ -60,8 +60,8 @@ source $HOME/.dotfiles/utils.sh
   git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
 #Link:
-	rm -rf $CONF/nvim/lua/custom
-	ln -s $REPO/neovim/custom $CONF/nvim/lua/custom
+	rm -rf $CONF/nvim/lua
+	ln -s $REPO/neovim/lua $CONF/nvim/lua
 
 	echo " "
 	log "Neovim Configured." "green"
