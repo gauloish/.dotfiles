@@ -1,19 +1,39 @@
 require "nvchad.options"
 
-local option = vim.o
+local options = vim.opt
 
-option.number = true
-option.relativenumber = true
-option.cursorline = true
-option.cursorcolumn = false
-option.showmode = false
+options.clipboard = ""
+options.cursorline = true
 
-option.expandtab = false
-option.tabstop = 4
-option.softtabstop = 4
-option.shiftwidth = 4
+-- Indenting
+options.expandtab = true
+options.shiftwidth = 4
+options.smartindent = true
+options.tabstop = 4
+options.softtabstop = 4
 
-option.autoindent = true
-option.smartindent = true
+-- Numbers
+options.number = true
+options.relativenumber = true
+options.numberwidth = 2
 
-option.signcolumn = "yes"
+-- Fold
+options.foldcolumn = "0"
+options.foldnestmax = 0
+options.foldlevel = 99
+options.foldlevelstart = 99
+options.foldenable = true
+
+options.fillchars = {
+	horiz = "─",
+	horizup = "┴",
+	horizdown = "┬",
+	vert = "│",
+	vertleft = "┤",
+	vertright = "├",
+	verthoriz = "┼",
+	fold = " ",
+	foldsep = " ",
+	foldopen = "",
+	foldclose = "",
+}
