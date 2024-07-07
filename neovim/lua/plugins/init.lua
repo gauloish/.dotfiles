@@ -27,6 +27,15 @@ local plugins = {
             require("configs.lspconfig")
         end,
     },
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = {"rafamadriz/friendly-snippets"},
+        config = function()
+            require("luasnip/loaders/from_vscode").lazy_load()
+            require("luasnip/loaders/from_snipmate").lazy_load()
+            require("luasnip/loaders/from_lua").lazy_load()
+        end
+    },
     { -- Cmp (Code Completion)
         "hrsh7th/nvim-cmp",
         lazy = false,
