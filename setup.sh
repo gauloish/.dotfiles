@@ -10,10 +10,10 @@ source $HOME/.dotfiles/utils.sh
 
 #----- Install and Setup Softwares
 
+source $REPO/neovim/install.sh
 source $REPO/starship/install.sh
 source $REPO/fish/install.sh
 source $REPO/blackbox/install.sh
-source $REPO/neovim/install.sh
 source $REPO/fonts/install.sh
 source $REPO/orchis/install.sh
 source $REPO/swidow/install.sh
