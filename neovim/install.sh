@@ -18,6 +18,7 @@ source $HOME/.dotfiles/utils.sh
 #Java:
     log "Installing Java Dependencies." "blue"
     sudo dnf install java java-devel
+    echo 'export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")' >> ~/.bashrc
 
 #Python:
 	log "Installing Python Dependencies." "blue"
