@@ -28,6 +28,7 @@ vim.opt.rtp:prepend(path)
 -- Setup Plugins
 
 require("lazy").setup({
+		require("plugins.packages.treesitter"),
 		require("plugins.packages.autopairs"),
 		require("plugins.packages.cmp"),
 		require("plugins.packages.ibl"),
