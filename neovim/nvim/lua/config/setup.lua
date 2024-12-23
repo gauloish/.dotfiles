@@ -29,4 +29,7 @@ vim.opt["smartindent"] = true
 
 -- vim.opt["signcolumn"] = "yes"
 
+vim.g["mapleader"] = " "
+vim.g["maplocalleader"] = "\\"
+
 vim.cmd("colorscheme habamax")
