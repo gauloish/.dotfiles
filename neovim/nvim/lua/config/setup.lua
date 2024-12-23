@@ -28,3 +28,5 @@ vim.opt["smartindent"] = true
 -- vim.opt["foldenable"] = true
 
 -- vim.opt["signcolumn"] = "yes"
+
+vim.cmd("colorscheme habamax")
