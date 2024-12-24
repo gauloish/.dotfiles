@@ -82,9 +82,10 @@ return {
 				end,
 			},
 			window = {
+				-- TODO: fix highlights for cmp float windows
 				completion = {
 					border = "rounded",
-					winhighlight = "Normal:Normal," .. "CursorLine:CursorLine," .. "Search:Search",
+					winhighlight = "Normal:Normal," .. "FloatBorder:Normal," .. "CursorLine:CursorLine," .. "Search:Search",
 					scrollbar = false,
 				},
 				documentation = {
