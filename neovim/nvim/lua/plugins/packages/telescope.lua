@@ -9,6 +9,7 @@ return {
 		local telescope = require("telescope")
 		local actions = telescope.extensions.file_browser.actions
 
+		-- TODO: fix highlights for telescope windows
 		telescope.setup({
 			defaults = {
 				preview = {
