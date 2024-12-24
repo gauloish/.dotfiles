@@ -27,7 +27,7 @@ vim.opt["smartindent"] = true
 -- vim.opt["foldlevelstart"] = 99
 -- vim.opt["foldenable"] = true
 
--- vim.opt["signcolumn"] = "yes"
+vim.opt["signcolumn"] = "yes"
 
 vim.g["mapleader"] = " "
 vim.g["maplocalleader"] = "\\"
