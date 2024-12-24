@@ -8,11 +8,11 @@ return {
 			auto_install = true,
 			highlight = {
 				enable = true,
-				disable = { "help" },
+				-- disable = { "help" },
 			},
 			indent = {
-				enable = true,
-				desable = {
+				enable = false, -- true
+				disable = {
 					"python",
 				},
 			},
