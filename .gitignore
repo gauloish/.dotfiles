@@ -2,4 +2,4 @@ fonts/.fonts/
 fonts/packages/
 orchis/packages/
 swidow/packages/
-neovim/nvim/*.json
+neovim/nvim/lazy-lock.json
