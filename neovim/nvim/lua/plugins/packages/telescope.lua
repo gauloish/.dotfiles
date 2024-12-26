@@ -54,11 +54,11 @@ return {
 		require("telescope").load_extension("file_browser")
 		require("telescope").load_extension("fzf")
 
-		vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Telescope find files" })
-		vim.keymap.set("n", "<leader>fm", ":Telescope file_browser<cr>" , { desc = "Telescope file browser" })
-		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Telescope live grep" })
-		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Telescope buffers" })
-		vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Telescope help tags" })
-		vim.keymap.set("n", "<leader>fc", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "Telescope current buffer fuzzy finder" })
+		vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, desc = "Telescope find files" })
+		vim.keymap.set("n", "<leader>fm", ":Telescope file_browser<cr>" , { silent = true, desc = "Telescope file browser" })
+		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Telescope live grep" })
+		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true, desc = "Telescope buffers" })
+		vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { silent = true, desc = "Telescope help tags" })
+		vim.keymap.set("n", "<leader>fc", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true, desc = "Telescope current buffer fuzzy finder" })
 	end,
 }
