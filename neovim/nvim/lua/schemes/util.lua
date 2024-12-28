@@ -5,16 +5,26 @@ local FILE = vim.fn.stdpath("data") .. "/.scheme"
 
 -- Color Scheme Functions
 
-local line = function(info)
+local format = function(info)
 	return info.background .. ": " .. info.name
 end
 
+local change = function(name)
+	if SCHEMES[name].background == "Light" then
+		vim.opt.background = "light"
+	else
+		vim.opt.background = "dark"
+	end
+
+	return pcall(SCHEMES[name].command)
+end
+
 local save = function(name)
-	if name then
+	if name and SCHEMES[name] then
 		local file = io.open(FILE, "w")
 
 		if file then
-			if pcall(SCHEMES[name].command) then
+			if change(name) then
 				file:write(name)
 				file:close()
 				return
@@ -22,10 +32,6 @@ local save = function(name)
 
 			file:close()
 		end
-
-		vim.api.nvim_echo({
-			{ "Failed to change colorscheme to \"" .. name .. "\".", "ErrorMsg" },
-		}, true, {})
 	else
 		pcall(os.remove, FILE)
 		vim.opt.background = "dark"
@@ -53,14 +59,14 @@ local selector = function(schemes)
 
 	-- Sort Schemes
 	table.sort(schemes, function(a, b)
-		return line(a) < line(b)
+		return format(a) < format(b)
 	end)
 
 	local formats = {}
 	local commands = {}
 
 	for _, info in pairs(schemes) do
-		table.insert(formats, line(info))
+		table.insert(formats, format(info))
 		table.insert(commands, info.command)
 	end
 
@@ -68,7 +74,7 @@ local selector = function(schemes)
 
 	local enter = function(prompt)
 		local index = state.get_selected_entry().index
-		save(schemes[index].name)
+		save(format(schemes[index]))
 		actions.close(prompt)
 	end
 
@@ -104,14 +110,8 @@ end
 
 return {
 	setup = function(schemes)
-		-- scheme = {
-		--	   name = <string>,
-		--	   background = <string>,
-		--	   command = <function>,
-		-- }
-
 		for _, scheme in pairs(schemes) do
-			SCHEMES[scheme.name] = {
+			SCHEMES[format(scheme)] = {
 				background = scheme.background,
 				command = scheme.command,
 			}

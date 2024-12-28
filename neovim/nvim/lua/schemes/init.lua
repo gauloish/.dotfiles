@@ -110,4 +110,59 @@ require("schemes.util").setup({
 			vim.cmd.colorscheme("nordic")
 		end,
 	},
+	-- Gruvbox
+	{
+		name = "Gruvbox [Hard]",
+		background = "Dark",
+		command = function()
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_foreground = "original"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "Gruvbox [Medium]",
+		background = "Dark",
+		command = function()
+			vim.g.gruvbox_material_background = "medium"
+			vim.g.gruvbox_material_foreground = "original"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "Gruvbox [Soft]",
+		background = "Dark",
+		command = function()
+			vim.g.gruvbox_material_background = "soft"
+			vim.g.gruvbox_material_foreground = "original"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "Gruvbox [Hard]",
+		background = "Light",
+		command = function()
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_foreground = "original"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "Gruvbox [Medium]",
+		background = "Light",
+		command = function()
+			vim.g.gruvbox_material_background = "medium"
+			vim.g.gruvbox_material_foreground = "original"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "Gruvbox [Soft]",
+		background = "Light",
+		command = function()
+			vim.g.gruvbox_material_background = "soft"
+			vim.g.gruvbox_material_foreground = "original"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
 })
