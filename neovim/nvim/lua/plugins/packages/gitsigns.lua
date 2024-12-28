@@ -1,6 +1,7 @@
 return {
 	"lewis6991/gitsigns.nvim",
 	config = function()
+		-- TODO: configure gitsigns correctly
 		require("gitsigns").setup({
 			signs = {
 				add = { text = " +" },

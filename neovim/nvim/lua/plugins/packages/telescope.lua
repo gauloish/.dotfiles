@@ -64,7 +64,7 @@ return {
 
 		vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, desc = "Telescope find files" })
 		vim.keymap.set("n", "<leader>fm", ":Telescope file_browser<cr>" , { silent = true, desc = "Telescope file browser" })
-		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Telescope live grep" })
+		vim.keymap.set("n", "<leader>fg", ":Telescope grep_string<CR>", { silent = true, desc = "Telescope live grep" })
 		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true, desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { silent = true, desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>fc", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true, desc = "Telescope current buffer fuzzy finder" })

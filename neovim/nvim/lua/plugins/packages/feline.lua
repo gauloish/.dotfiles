@@ -1,6 +1,7 @@
 return {
     'freddiehaddad/feline.nvim',
     config = function()
+		-- TODO: configure statusine correctly
 		local one_monokai = {
 			fg = "#abb2bf",
 			bg = "#1e2024",
