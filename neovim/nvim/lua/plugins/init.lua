@@ -8,5 +8,11 @@ require("plugins.lazy").setup({
 	require("plugins.packages.ibl"),
 	require("plugins.packages.wilder"),
 	-- Color Schemes
-	require("schemes.packages.oxocarbon").plugin,
+	require("plugins.schemes.oxocarbon"),
+	require("plugins.schemes.catppuccin"),
+	require("plugins.schemes.tokyonight"),
+	require("plugins.schemes.rosepine"),
+	require("plugins.schemes.nord"),
+	require("plugins.schemes.nordic"),
+	require("plugins.schemes.gruvbox"),
 })

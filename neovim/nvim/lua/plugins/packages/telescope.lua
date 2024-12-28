@@ -12,6 +12,14 @@ return {
 		-- TODO: fix highlights for telescope windows
 		telescope.setup({
 			defaults = {
+				theme = "center",
+				sorting_strategy = "ascending",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+					},
+				},
+				-- border = false,
 				preview = {
 					treesitter = true,
 				},
