@@ -4,9 +4,7 @@ return {
 		require("schemes").setup({
 			before = function(scheme) end,
 			after = function(scheme)
-				local palette = scheme.palette
-
-				-- require("plugins.schemes.highlights").highlights(palette)
+				require("plugins.schemes.highlights").highlights(scheme)
 			end,
 			default = {
 				name = "Habamax",

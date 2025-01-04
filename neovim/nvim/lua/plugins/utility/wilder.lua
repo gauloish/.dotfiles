@@ -31,12 +31,11 @@ return {
 				},
 				highlighter = wilder.basic_highlighter(),
 				highlights = {
-					-- TODO: fix highlights for wilder windows
-					border = "Normal",
-					default = "Normal", -- WildDefault",
-					selected = "CursorLine",
-					accent = "Normal", -- WildAccent",
-					selected_accent = "Normal", -- WildSelectedAccent",
+					border = "WildBorder",
+					default = "WildDefault",
+					selected = "WildSelected",
+					accent = "WildAccent",
+					selected_accent = "WildSelectedAccent",
 				},
 				border = "rounded",
 				prompt_border = { "│", "─", "│" }, --{ "╭", "─", "╮" },

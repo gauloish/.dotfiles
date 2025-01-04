@@ -79,7 +79,7 @@ local component_generators = {
 				return mode_format:format(aliases[mode][1])
 			end,
 			priority = 0,
-			hl = "LineNr",
+			hl = "StatusLine",
 			right_sep = {
 				str = " ",
 				hl = "Normal",
@@ -110,7 +110,7 @@ local component_generators = {
 				return path
 			end,
 			priority = 0,
-			hl = "LineNr",
+			hl = "StatusLine",
 			right_sep = {
 				str = " ",
 				hl = "Normal",
@@ -124,7 +124,7 @@ local component_generators = {
 				return vim.fn.expand("%:t")
 			end,
 			priority = 0,
-			hl = "LineNr",
+			hl = "StatusLine",
 			right_sep = {
 				str = " ",
 				hl = "Normal",
@@ -138,7 +138,7 @@ local component_generators = {
 				return vim.bo.modified and "○" or "●"
 			end,
 			priority = 0,
-			hl = "LineNr",
+			hl = "StatusLine",
 			right_sep = {
 				str = " ",
 				hl = "Normal",
@@ -171,7 +171,7 @@ local component_generators = {
 				return format:format(icon, extension)
 			end,
 			priority = 0,
-			hl = "LineNr",
+			hl = "StatusLine",
 			enabled = function()
 				return vim.fn.expand("%:e"):len() ~= 0
 			end,
@@ -208,7 +208,7 @@ local component_generators = {
 				return format:format(branch, added, removed, changed)
 			end,
 			priority = 0,
-			hl = "LineNr",
+			hl = "StatusLine",
 			enabled = function()
 				return vim.b.gitsigns_head
 			end,
@@ -232,7 +232,7 @@ local component_generators = {
 				return ("≡ Ln %d, Cl %d"):format(line, column + 1)
 			end,
 			priority = 0,
-			hl = "LineNr",
+			hl = "StatusLine",
 			right_sep = {
 				str = " ",
 				hl = "Normal",

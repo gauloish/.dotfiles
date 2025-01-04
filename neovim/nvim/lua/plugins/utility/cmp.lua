@@ -84,10 +84,9 @@ return {
 				end,
 			},
 			window = {
-				-- TODO: fix highlights for cmp float windows
 				completion = {
 					border = "rounded",
-					winhighlight = "Normal:Normal," .. "FloatBorder:Normal," .. "CursorLine:CursorLine," .. "Search:Search",
+					winhighlight = "Normal:CmpNormal," .. "CursorLine:CmpCursorLine," .. "Search:CmpSearch",
 					scrollbar = false,
 				},
 				documentation = {
@@ -159,7 +158,7 @@ return {
 			experimental = {
 				native_menu = false,
 				ghost_text = {
-					hl_group = "GhostText",
+					hl_group = "CmpGhostText",
 				},
 			},
 		})
