@@ -2,4 +2,3 @@
 
 require("config")
 require("plugins")
-require("schemes")
