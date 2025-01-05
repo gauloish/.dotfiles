@@ -16,8 +16,8 @@ vim.opt["expandtab"] = false
 vim.opt["autoindent"] = true
 vim.opt["smartindent"] = true
 
--- vim.opt["timeout"] = true
--- vim.opt["timeoutlen"] = 100000
+vim.opt["timeout"] = true
+vim.opt["timeoutlen"] = 100000
 
 -- vim.opt["updatetime"] = 100
 
@@ -28,6 +28,8 @@ vim.opt["smartindent"] = true
 -- vim.opt["foldenable"] = true
 
 vim.opt["signcolumn"] = "yes"
+
+vim.opt["laststatus"] = 3
 
 vim.g["mapleader"] = " "
 vim.g["maplocalleader"] = "\\"
