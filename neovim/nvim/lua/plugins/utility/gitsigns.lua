@@ -1,5 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	event = "BufEnter",
 	config = function()
 		-- TODO: configure gitsigns correctly
 		require("gitsigns").setup({
@@ -21,7 +22,7 @@ return {
 				ignore_whitespace = false,
 			},
 			current_line_blame_formatter = "<author>, <author_time:%d-%m-%Y>: <summary>",
-			update_debounce = 1000,
+			update_debounce = 200,
 			max_file_length = 50000,
 			preview_config = {
 				border = "rounded",
