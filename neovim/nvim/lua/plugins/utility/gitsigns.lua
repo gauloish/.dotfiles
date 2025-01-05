@@ -21,7 +21,7 @@ return {
 				delay = 1000,
 				ignore_whitespace = false,
 			},
-			current_line_blame_formatter = "<author>, <author_time:%d-%m-%Y>: <summary>",
+			current_line_blame_formatter = "<author>, <author_time:%d/%m/%Y>: <summary>",
 			update_debounce = 200,
 			max_file_length = 50000,
 			preview_config = {
