@@ -13,6 +13,7 @@ require("plugins.lazy").setup({
 	require("plugins.utility.gitsigns"),
 	require("plugins.utility.web-devicons"),
 	require("plugins.utility.feline"),
+	require("plugins.utility.incline"),
 	require("plugins.utility.colorizer"),
 	-- Color Schemes
 	require("plugins.schemes.oxocarbon"),

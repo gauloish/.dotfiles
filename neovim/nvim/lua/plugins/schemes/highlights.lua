@@ -67,8 +67,7 @@ M.highlights = function(scheme)
 		palette.fg[i] = M.mix(fg, bg, 0.05 * (i - 3))
 	end
 
-	-- Windows Highlights: tools/windows.lua
-
+	-- Windows Highlights
 	vim.api.nvim_set_hl(0, "StatusLine", { bg = palette.bg[3], fg = palette.fg[10] })
 	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = palette.bg[3], fg = palette.bg[10] })
 
@@ -95,7 +94,7 @@ M.highlights = function(scheme)
 
 	vim.api.nvim_set_hl(0, "Search", { bg = palette.bg[6] })
 
-	-- Completion Highlights: plugins/completion.lua
+	-- Completion Highlights: plugins/utility/cmp.lua
 	vim.api.nvim_set_hl(0, "CmpNormal", { fg = palette.bg[10] })
 	vim.api.nvim_set_hl(0, "CmpCursorLine", { bg = palette.bg[5] })
 	vim.api.nvim_set_hl(0, "CmpSearch", { fg = palette.cyan })
@@ -141,7 +140,7 @@ M.highlights = function(scheme)
 	vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = palette.magenta })
 	vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = palette.magenta })
 
-	-- File Explorer Highlights: plugins/explorer.lua
+	-- File Explorer Highlights: plugins/utility/nvim-tree.lua
 	-- vim.api.nvim_set_hl(0, "NvimTreeSymlink", { fg = palette.bg[10] })
 	-- vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = palette.bg[10] })
 	-- vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = palette.bg[10] })
@@ -181,7 +180,7 @@ M.highlights = function(scheme)
 	--
 	-- vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", { bg = palette.bg[5], fg = palette.fg[5] })
 
-	-- Finder Highlights: plugins/finder.lua
+	-- Telescope Highlights: plugins/utility/Telescope.lua
 	vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = palette.bg[5] })
 	vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = palette.bg[5] })
 
@@ -211,7 +210,7 @@ M.highlights = function(scheme)
 	-- vim.api.nvim_set_hl(0, "UfoPreviewWinbar", { bg = palette.bg[5] })
 	-- vim.api.nvim_set_hl(0, "UfoPreviewCursorLine", { bg = palette.bg[4] })
 
-	-- Indent Highlights: plugins/indent.lua
+	-- Indent Highlights: plugins/utility/indent-blankline.lua
 	vim.api.nvim_set_hl(0, "IblIndent", { fg = palette.bg[5] })
 	vim.api.nvim_set_hl(0, "IblWhitespace", { fg = palette.bg[5] })
 	vim.api.nvim_set_hl(0, "IblScope", { fg = palette.bg[8] })
@@ -259,7 +258,7 @@ M.highlights = function(scheme)
 	-- 	eval["sign_define"]("DiagnosticSign" .. sign, { text = icon, texthl = group, numhl = group })
 	-- end
 
-	-- Signs Highlights: plugins/signs.lua
+	-- Git Signs Highlights: plugins/utility/gitsigns.lua
 	local low = 0.1
 	local high = 0.4
 
@@ -332,7 +331,7 @@ M.highlights = function(scheme)
 	vim.api.nvim_set_hl(0, "GitSignsStagedUntrackedNr", { fg = magenta[1] })
 	vim.api.nvim_set_hl(0, "GitSignsStagedUntrackedLn", { bg = magenta[2] })
 
-	-- Wild Menu Highlights: plugins/wilder.lua
+	-- Wild Menu Highlights: plugins/utility/wilder.lua
 	vim.api.nvim_set_hl(0, "WildBorder", { fg = palette.bg[10] })
 	vim.api.nvim_set_hl(0, "WildDefault", { bg = palette.bg[3], fg = palette.fg[3] })
 	vim.api.nvim_set_hl(0, "WildSelected", { bg = palette.bg[5], fg = palette.fg[3] })
@@ -390,6 +389,10 @@ M.highlights = function(scheme)
 	-- vim.api.nvim_set_hl(0, "TerminalVertSplit", { bg = palette.bg[3], fg = palette.bg[1] })
 	-- vim.api.nvim_set_hl(0, "TerminalWinSeparator", { bg = palette.bg[3], fg = palette.bg[1] })
 	-- vim.api.nvim_set_hl(0, "TerminalEndOfBuffer", { fg = palette.bg[6] })
+	
+	-- Incline Highlights: plugins/utility/incline.lua
+	vim.api.nvim_set_hl(0, "InclineText", { bg = palette.bg[5], fg = palette.fg[3] })
+	vim.api.nvim_set_hl(0, "InclineTextNC", { bg = palette.bg[5], fg = palette.fg[9] })
 end
 
 return M
