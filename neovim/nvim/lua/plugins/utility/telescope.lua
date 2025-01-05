@@ -29,11 +29,13 @@ return {
 				find_files = {
 					hidden = true,
 				},
-				file_browser = {
+				live_grep = {
 					hidden = true,
-				},
-				live_greps = {
-					hidden = true,
+					mappings = {
+						i = {
+							["<c-f>"] = require('telescope.actions').to_fuzzy_refine,
+						},
+					},
 				},
 			},
 			extensions = {
@@ -45,15 +47,13 @@ return {
 				},
 				file_browser = {
 					hijack_netrw = true,
-					mappings = {
-						["n"] = {
-							["a"] = actions.create,
-							["y"] = actions.copy,
-							["d"] = actions.remove,
-							["m"] = actions.move,
-							["r"] = actions.rename,
-						},
+					hidden = {
+						file_browser = true,
+						folder_browser = true,
 					},
+					follow_symlinks = true,
+					auto_depth = true,
+					prompt_path = true,
 				},
 			},
 		})
@@ -63,7 +63,7 @@ return {
 
 		vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>", { silent = true, desc = "Telescope find files" })
 		vim.keymap.set("n", "<leader>fm", ":Telescope file_browser<cr>" , { silent = true, desc = "Telescope file browser" })
-		vim.keymap.set("n", "<leader>fg", ":Telescope grep_string<cr>", { silent = true, desc = "Telescope grep string" })
+		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>", { silent = true, desc = "Telescope live grep" })
 		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", { silent = true, desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<cr>", { silent = true, desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>fc", ":Telescope current_buffer_fuzzy_find<cr>", { silent = true, desc = "Telescope current buffer fuzzy finder" })
