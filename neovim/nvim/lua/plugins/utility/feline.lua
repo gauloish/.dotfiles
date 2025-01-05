@@ -92,7 +92,7 @@ local component_generators = {
 		return {
 			name = "file_path",
 			provider = function()
-				local path = vim.fn.expand("%:p")
+				local path = vim.fn.expand("%:p:~")
 
 				if path:len() == 0 then
 					path = default_path
@@ -101,7 +101,7 @@ local component_generators = {
 				return path
 			end,
 			short_provider = function()
-				local path = vim.fn.expand("%:.")
+				local path = vim.fn.expand("%:~:.")
 
 				if path:len() == 0 then
 					path = default_path
@@ -135,7 +135,8 @@ local component_generators = {
 		return {
 			name = "file_modified",
 			provider = function()
-				return vim.bo.modified and "○" or "●"
+				-- return vim.bo.modified and "○" or "●"
+				return vim.bo.modified and "[+]" or "   "
 			end,
 			priority = 0,
 			hl = "StatusLine",
@@ -182,8 +183,8 @@ local component_generators = {
 		}
 	end,
 	git_info = function()
-		--print("    ")
-		local format = " %s +%s -%s ~%s"
+		-- print("    ")
+		local format = "  %s +%d -%d ~%d"
 
 		return {
 			name = "git_info",
@@ -218,18 +219,43 @@ local component_generators = {
 			},
 		}
 	end,
+	lsp_info = function()
+		--  
+		local format = " %s  %s "
+		
+		-- format = " %d  %d "
+
+		return {
+			name = "lsp_info",
+			provider = function()
+				local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) or 0
+				local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) or 0
+
+				return format:format(errors, warnings)
+			end,
+			priority = 0,
+			hl = "StatusLine",
+			enabled = function()
+				return true
+			end,
+			right_sep = {
+				str = " ",
+				hl = "Normal",
+			},
+		}
+	end,
 	cursor_position = function()
 		return {
 			name = "cursor_position",
 			provider = function()
 				local line, column = unpack(vim.api.nvim_win_get_cursor(0))
 
-				return ("≡ Line %d, Column %d"):format(line, column + 1)
+				return ("≡ Ln %d, Col %d"):format(line, column + 1)
 			end,
 			short_provider = function()
 				local line, column = unpack(vim.api.nvim_win_get_cursor(0))
 
-				return ("≡ Ln %d, Cl %d"):format(line, column + 1)
+				return ("≡ %d:%d"):format(line, column + 1)
 			end,
 			priority = 0,
 			hl = "StatusLine",
@@ -251,14 +277,13 @@ return {
 		-- lsp_info[errors, warnings, hints, info] position[line:column]
 
 		local vim_mode = component_generators.vim_mode()
-		local file_name = component_generators.file_name()
+		-- local file_name = component_generators.file_name()
 		local file_path = component_generators.file_path()
 		local file_extension = component_generators.file_extension()
 		local file_modified = component_generators.file_modified()
 		local git_info = component_generators.git_info()
-		-- local lsp_info = component_generators.lsp_info()
+		local lsp_info = component_generators.lsp_info()
 		local cursor_position = component_generators.cursor_position()
-		-- local file_position = component_generators.file_position()
 
 		local components = {
 			active = {
@@ -267,10 +292,11 @@ return {
 					git_info,
 				},
 				{ -- middle
-					file_modified,
 					file_path,
+					file_modified,
 				},
 				{ -- right
+					lsp_info,
 					file_extension,
 					cursor_position,
 				}
