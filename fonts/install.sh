@@ -14,8 +14,7 @@ mkdir $REPO/fonts/.fonts
 	log "Installing Nerd Fonts." "blue"
 	echo " "
 	
-	version="v3.3.0"
-	url="https://github.com/ryanoasis/nerd-fonts/releases/download"
+	url="https://github.com/ryanoasis/nerd-fonts/releases/latest/download"
 
 	names[1]="Cascadia Cove"
 	names[2]="Jet Brains"
@@ -27,20 +26,22 @@ mkdir $REPO/fonts/.fonts
 		log "Installing ${names[$index]} Font." "blue"
 		echo " "
 
-		wget ${url}/${version}/${fonts[$index]}.zip -P $REPO/fonts/packages/
+		wget ${url}/${fonts[$index]}.tar.xz -P $REPO/fonts/packages/
 
 		if [ $? -eq 0 ]; then
 			mkdir $REPO/fonts/.fonts/${fonts[$index]}
-			unzip $REPO/fonts/packages/${fonts[$index]}.zip -d $REPO/fonts/.fonts/${fonts[$index]}/
+			tar -xf $REPO/fonts/packages/${fonts[$index]}.tar.xz -C $REPO/fonts/.fonts/${fonts[$index]}/
 		else
 			log "Cascadia Cove Font Installation Failed!" "red"
 		fi
+
+		echo " "
 	done
 
 	fc-cache $HOME/.fonts
 
-	echo " "
 	log "Nerd Fonts Installed." "green"
+	echo " "
 
 #----- Configure Fonts
 
