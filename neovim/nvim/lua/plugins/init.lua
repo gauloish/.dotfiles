@@ -15,6 +15,9 @@ require("plugins.lazy").setup({
 	require("plugins.utility.feline"),
 	require("plugins.utility.incline"),
 	require("plugins.utility.colorizer"),
+	-- Language
+	-- require("plugins.language.mason"),
+	-- require("plugins.language.conform"),
 	-- Color Schemes
 	require("plugins.schemes.oxocarbon"),
 	require("plugins.schemes.catppuccin"),
