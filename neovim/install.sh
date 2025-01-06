@@ -34,6 +34,7 @@ source $HOME/.dotfiles/utils.sh
 	log "Installing Node Dependencies." "blue"
 	sudo dnf install -y nodejs
 	sudo dnf install -y npm
+	sudo npm install -g neovim
 
 #Rust:
 	log "Installing Rust Dependencies." "blue"
@@ -63,13 +64,9 @@ source $HOME/.dotfiles/utils.sh
     rm -rf ~/.config/nvim
     rm -rf ~/.local/share/nvim
 
-#Nv Chad:
-	log "Installing Nv Chad Configuration" "blue"
-  git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-
 #Link:
-	rm -rf $CONF/nvim/lua
-	ln -s $REPO/neovim/lua $CONF/nvim/lua
+	rm -rf $CONF/nvim
+	ln -s $REPO/neovim/nvim $CONF/nvim
 
 	echo " "
 	log "Neovim Configured." "green"
