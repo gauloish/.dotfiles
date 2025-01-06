@@ -33,40 +33,40 @@ local component_generators = {
 	end,
 	vim_mode = function()
 		local aliases = {
-			["n"] = { "NORMAL", "NORMAL" },
-			["no"] = { "OP", "OP" },
-			["nov"] = { "OP", "OP" },
-			["noV"] = { "OP", "OP" },
-			["no"] = { "OP", "OP" },
-			["niI"] = { "NORMAL", "NORMAL" },
-			["niR"] = { "NORMAL", "NORMAL" },
-			["niV"] = { "NORMAL", "NORMAL" },
-			["v"] = { "VISUAL", "VISUAL" },
-			["vs"] = { "VISUAL", "VISUAL" },
-			["V"] = { "LINES", "LINES" },
-			["Vs"] = { "LINES", "LINES" },
-			[""] = { "BLOCK", "BLOCK" },
-			["s"] = { "BLOCK", "BLOCK" },
-			["s"] = { "SELECT", "SELECT" },
-			["S"] = { "SELECT", "SELECT" },
-			[""] = { "BLOCK", "BLOCK" },
-			["i"] = { "INSERT", "INSERT" },
-			["ic"] = { "INSERT", "INSERT" },
-			["ix"] = { "INSERT", "INSERT" },
-			["R"] = { "REPLACE", "REPLACE" },
-			["Rc"] = { "REPLACE", "REPLACE" },
-			["Rv"] = { "V-REPLACE", "V-REPLACE" },
-			["Rx"] = { "REPLACE", "REPLACE" },
-			["c"] = { "COMMAND", "COMMAND" },
-			["cv"] = { "COMMAND", "COMMAND" },
-			["ce"] = { "COMMAND", "COMMAND" },
-			["r"] = { "ENTER", "ENTER" },
-			["rm"] = { "MORE", "MORE" },
-			["r?"] = { "CONFIRM", "CONFIRM" },
-			["!"] = { "SHELL", "SHELL" },
-			["t"] = { "TERM", "TERM" },
-			["nt"] = { "TERM", "TERM" },
-			["null"] = { "NONE", "NONE" },
+			["n"] = "NORMAL",
+			["no"] = "OP",
+			["nov"] = "OP",
+			["noV"] = "OP",
+			["no"] = "OP",
+			["niI"] = "NORMAL",
+			["niR"] = "NORMAL",
+			["niV"] = "NORMAL",
+			["v"] = "VISUAL",
+			["vs"] = "VISUAL",
+			["V"] = "LINES",
+			["Vs"] = "LINES",
+			[""] = "BLOCK",
+			["s"] = "BLOCK",
+			["s"] = "SELECT",
+			["S"] = "SELECT",
+			[""] = "BLOCK",
+			["i"] = "INSERT",
+			["ic"] = "INSERT",
+			["ix"] = "INSERT",
+			["R"] = "REPLACE",
+			["Rc"] = "REPLACE",
+			["Rv"] = "V-REPLACE",
+			["Rx"] = "REPLACE",
+			["c"] = "COMMAND",
+			["cv"] = "COMMAND",
+			["ce"] = "COMMAND",
+			["r"] = "ENTER",
+			["rm"] = "MORE",
+			["r?"] = "CONFIRM",
+			["!"] = "SHELL",
+			["t"] = "TERM",
+			["nt"] = "TERM",
+			["null"] = "NONE",
 		}
 
 		local mode_format = "▊ %s"
@@ -76,7 +76,13 @@ local component_generators = {
 			provider = function()
 				local mode = vim.api.nvim_get_mode().mode
 
-				return mode_format:format(aliases[mode][1])
+				if aliases[mode] then
+					mode = aliases[mode]
+				else
+					mode = "NONE"
+				end
+
+				return mode_format:format(mode)
 			end,
 			priority = 0,
 			hl = "StatusLine",
@@ -220,8 +226,8 @@ local component_generators = {
 		}
 	end,
 	lsp_info = function()
-		--  
-		local format = " %s  %s "
+		--    
+		local format = " %s  %s "
 		
 		-- format = " %d  %d "
 
@@ -296,6 +302,7 @@ return {
 					file_modified,
 				},
 				{ -- right
+					lsp_info,
 					file_extension,
 					cursor_position,
 				}
