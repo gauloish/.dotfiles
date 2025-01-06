@@ -35,8 +35,8 @@ log() {
 # ----- Install Dependencies
 
 # Utilitaries (Zip, Unzip, Wget, Curl and Git):
-	log "Installing Utilitaries (Zip, Unzip, Wget, Curl and Git)." "magenta"
-	sudo dnf install zip unzip wget curl git
+	log "Installing Utilitaries (Zip, Unzip, Gzip, Tar, Wget, Curl and Git)." "magenta"
+	sudo dnf install zip unzip gzip tar wget curl git
 
 # Setting Git:
 	rm -f .gitconfig
