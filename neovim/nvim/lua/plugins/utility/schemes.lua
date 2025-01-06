@@ -7,10 +7,25 @@ return {
 				require("plugins.schemes.highlights").highlights(scheme)
 			end,
 			default = {
-				name = "Habamax",
+				name = "Default",
 				background = "dark",
+				palette = {
+					-- Base
+					bg = "#16161b",
+					md = "#2c2e33",
+					fg = "#cfcfcf",
+					-- Colors
+					red     = "#5e0009",
+					orange  = "#683703",
+					yellow  = "#6e5600",
+					green   = "#015825",
+					cyan    = "#007676",
+					blue    = "#005078",
+					purple  = "#371656",
+					magenta = "#4c0049",
+				},
 				command = function()
-					vim.cmd.colorscheme("habamax")
+					vim.cmd.colorscheme("default")
 				end,
 			},
 			schemes = require("plugins.schemes.schemes"),
