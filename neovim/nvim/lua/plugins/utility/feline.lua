@@ -296,7 +296,6 @@ return {
 					file_modified,
 				},
 				{ -- right
-					lsp_info,
 					file_extension,
 					cursor_position,
 				}
