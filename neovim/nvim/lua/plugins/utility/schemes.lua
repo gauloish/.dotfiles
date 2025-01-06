@@ -16,12 +16,12 @@ return {
 					fg = "#cfcfcf",
 					-- Colors
 					red     = "#5e0009",
-					orange  = "#683703",
+					orange  = "#6e5600",
 					yellow  = "#6e5600",
 					green   = "#015825",
 					cyan    = "#007676",
 					blue    = "#005078",
-					purple  = "#371656",
+					purple  = "#4c0049",
 					magenta = "#4c0049",
 				},
 				command = function()
