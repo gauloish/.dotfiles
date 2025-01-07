@@ -17,6 +17,8 @@ require("plugins.lazy").setup({
 	require("plugins.utility.colorizer"),
 	-- Language
 	require("plugins.language.mason"),
+	require("plugins.language.nvim-lspconfig"),
+	require("plugins.language.nvim-lint"),
 	require("plugins.language.conform"),
 	-- Color Schemes
 	require("plugins.schemes.oxocarbon"),
