@@ -2,7 +2,6 @@ return {
 	"mfussenegger/nvim-lint",
 	config = function()
 		require("lint").linters_by_ft = {
-			["lua"] = {"selene"},
 			["python"] = {"flake8", "mypy"},
 			["c"] = {"cpplint"},
 			["cpp"] = {"cpplint"},

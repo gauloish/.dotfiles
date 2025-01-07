@@ -23,7 +23,7 @@ return {
 
 		-- Command to install lua tools
 		vim.api.nvim_create_user_command("LuaTools", function()
-			vim.cmd("MasonInstall lua-language-server selene stylua")
+			vim.cmd("MasonInstall lua-language-server stylua")
 		end, {})
 
 		-- Command to install python tools
