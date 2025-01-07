@@ -20,5 +20,20 @@ return {
 				},
 			},
 		})
+
+		-- Command to install lua tools
+		vim.api.nvim_create_user_command("LuaTools", function()
+			vim.cmd("MasonInstall lua-language-server selene stylua")
+		end, {})
+
+		-- Command to install python tools
+		vim.api.nvim_create_user_command("PythonTools", function()
+			vim.cmd("MasonInstall pyright flake8 mypy black isort debugpy")
+		end, {})
+
+		-- Command to install c/c++ tools
+		vim.api.nvim_create_user_command("CCppTools", function()
+			vim.cmd("MasonInstall clangd cpplint clang-format cpptools")
+		end, {})
 	end,
 }
