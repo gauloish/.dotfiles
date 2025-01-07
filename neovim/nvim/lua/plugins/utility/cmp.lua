@@ -8,9 +8,9 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-calc",
 		"hrsh7th/cmp-nvim-lua",
-		-- "hrsh7th/cmp-nvim-lsp",
-		-- "hrsh7th/cmp-nvim-lsp-document-symbol",
-		-- "hrsh7th/cmp-nvim-lsp-signature-help",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-nvim-lsp-document-symbol",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
         {
             "L3MON4D3/LuaSnip",
             version = "v2.*",
@@ -132,13 +132,13 @@ return {
 			},
 			sources = {
 				{ name = "luasnip" },
-				-- { name = "nvim_lsp" },
+				{ name = "nvim_lsp" },
 				{ name = "nvim_lua" },
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "calc" },
-				-- { name = "nvim_lsp_document_symbol" },
-				-- { name = "nvim_lsp_signature_help" },
+				{ name = "nvim_lsp_document_symbol" },
+				{ name = "nvim_lsp_signature_help" },
 			},
 			formatting = {
 				format = lspkind.cmp_format({
