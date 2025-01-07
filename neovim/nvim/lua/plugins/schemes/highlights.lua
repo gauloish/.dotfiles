@@ -1,8 +1,8 @@
 local M = {}
 
 --- Convert from hexadecimal ro RGB color
----@param hex Hexadecimal color
----@return RGB color
+---@param hex string Hexadecimal color
+---@return integer, integer, integer color
 M.hex_to_rgb = function(hex)
 	hex = ("%06X"):format(tonumber(hex:gsub("#", ""), 16))
 
@@ -14,36 +14,36 @@ M.hex_to_rgb = function(hex)
 end
 
 --- Convert from RGB to hexadecimal color
----@param r Red channel
----@param g Green channel
----@param b Blue channel
----@return Hexadecimal color
+---@param r integer Red channel
+---@param g integer Green channel
+---@param b integer Blue channel
+---@return string rgb color
 M.rgb_to_hex = function(r, g, b)
 	return ("#%02X%02X%02X"):format(r, g, b)
 end
 
 --- Calculate linear interpolation between two hexadecimal colors
----@param a First string color
----@param b Second string color
----@param t interpolation parameter
----@return Linear interpolation between colors
+---@param a string First string color
+---@param b string Second string color
+---@param t number interpolation parameter
+---@return string mix Linear interpolation between colors
 M.mix = function(a, b, t)
 	local ra, ga, ba = M.hex_to_rgb(a)
 	local rb, gb, bb = M.hex_to_rgb(b)
 
-	local r = (1 - t)*ra + t*rb
-	local g = (1 - t)*ga + t*gb
-	local b = (1 - t)*ba + t*bb
+	local rm = (1 - t)*ra + t*rb
+	local gm = (1 - t)*ga + t*gb
+	local bm = (1 - t)*ba + t*bb
 
-	r = math.min(math.max(r, 0), 255)
-	g = math.min(math.max(g, 0), 255)
-	b = math.min(math.max(b, 0), 255)
+	rm = math.min(math.max(rm, 0), 255)
+	gm = math.min(math.max(gm, 0), 255)
+	bm = math.min(math.max(bm, 0), 255)
 
-	return M.rgb_to_hex(r, g, b)
+	return M.rgb_to_hex(rm, gm, bm)
 end
 
 --- Redefine neovim highlights
----@param scheme Color scheme
+---@param scheme table Color scheme
 M.highlights = function(scheme)
 	if not scheme.palette then
 		return
@@ -55,9 +55,9 @@ M.highlights = function(scheme)
 		palette[key] = value
 	end
 
-	local bg = palette.bg
-	local fg = palette.fg
-	local md = palette.md
+	local bg = tostring(palette.bg)
+	local fg = tostring(palette.fg)
+	-- local md = palette.md
 
 	palette.bg = {}
 	palette.fg = {}
@@ -217,7 +217,6 @@ M.highlights = function(scheme)
 	vim.api.nvim_set_hl(0, "@ibl.indent.char.1", { fg = palette.bg[5] })
 	vim.api.nvim_set_hl(0, "@ibl.whitespace.char.1", { fg = palette.bg[5] })
 	vim.api.nvim_set_hl(0, "@ibl.scope.char.1", { fg = palette.bg[8] })
-	
 
 	-- Language Highlights: plugins/languages.lua
 	vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = palette.blue })
@@ -244,19 +243,6 @@ M.highlights = function(scheme)
 	vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { sp = palette.green, underline = true })
 	vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { sp = palette.purple, underline = true })
 	vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = palette.red, underline = true })
-
-	-- local signs = {
-	-- 	Error = " ▎", --" ",
-	-- 	Warn = " ▎", --" ",
-	-- 	Hint = " ▎", --" ",
-	-- 	Info = " ▎", --" "
-	-- }
-	--
-	-- for sign, icon in pairs(signs) do
-	-- 	local group = "Diagnostic" .. sign
-	--
-	-- 	eval["sign_define"]("DiagnosticSign" .. sign, { text = icon, texthl = group, numhl = group })
-	-- end
 
 	-- Git Signs Highlights: plugins/utility/gitsigns.lua
 	local low = 0.1
