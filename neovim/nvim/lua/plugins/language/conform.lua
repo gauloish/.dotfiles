@@ -1,7 +1,9 @@
 return {
 	"stevearc/conform.nvim",
 	config = function()
-		require("conform").setup({
+		local conform = require("conform")
+
+		conform.setup({
 			formatters_by_ft = {
 				lua = {"stylua"},
 				c = {"clang-format"},
@@ -10,8 +12,6 @@ return {
 			}
 		})
 
-		vim.api.nvim_create_user_command("Format", function()
-			require("conform").format()
-		end, {})
+		vim.keymap.set("n", "<leader>gf", conform.format, { silent = true, desc = "Format code" })
 	end,
 }

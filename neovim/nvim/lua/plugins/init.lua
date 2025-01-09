@@ -11,10 +11,13 @@ require("plugins.lazy").setup({
 	require("plugins.utility.neogen"),
 	require("plugins.utility.comment"),
 	require("plugins.utility.gitsigns"),
+	-- require("plugins.utility.diffview"),
+	-- require("plugins.utility.neogit"),
 	require("plugins.utility.web-devicons"),
 	require("plugins.utility.feline"),
 	require("plugins.utility.incline"),
 	require("plugins.utility.colorizer"),
+	require("plugins.utility.nvim-surround"),
 	-- Language plugins
 	require("plugins.language.mason"),
 	require("plugins.language.nvim-lspconfig"),
