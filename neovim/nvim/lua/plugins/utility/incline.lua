@@ -1,7 +1,7 @@
 return {
 	"b0o/incline.nvim",
 	config = function()
-		local icons = require("nvim-web-devicons")
+		local get_icon = require("nvim-web-devicons").get_icon
 
 		require("incline").setup({
 			window = {
@@ -20,20 +20,15 @@ return {
 					file = "[empty]"
 				end
 
-				local icon = icons.get_icon(file)
-				local modified = vim.bo[buffer].modified
+				local icon = get_icon(file)
 
-				-- local result = {
-				-- 	{" ", icon, " ", group = "InclineIcon"},
-				-- 	{" ", file, " ", group = "InclineFile"}
-				-- }
-				--
-				-- if window ~= vim.api.nvim_get_current_win() then
-				-- 	result[1].group = "InclineIconNC"
-				-- 	result[2].group = "InclineFileNC"
-				-- end
-				
-				local result = {" ", icon, " ", file, " ", group = "InclineText"}
+				if icon then
+					icon = " " .. icon
+				else
+					icon = ""
+				end
+
+				local result = {icon, " ", file, " ", group = "InclineText"}
 
 				if window ~= vim.api.nvim_get_current_win() then
 					result.group = "InclineTextNC"
