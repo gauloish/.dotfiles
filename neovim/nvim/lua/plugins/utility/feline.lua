@@ -1,38 +1,6 @@
-local component_generators = {
-	default = function()
-		return {
-			active = {
-				name = "active_default",
-				provider = function()
-					--[[ ... ]]
-				end,
-				short_provider = function()
-					--[[ ... ]]
-				end,
-				enabled = function()
-					--[[ ... ]]
-				end,
-				priority = 0,
-				hl = "",
-			},
-			inactive = {
-				name = "inactive_default",
-				provider = function()
-					--[[ ... ]]
-				end,
-				short_provider = function()
-					--[[ ... ]]
-				end,
-				enabled = function()
-					--[[ ... ]]
-				end,
-				priority = 0,
-				hl = "",
-			}
-		}
-	end,
+local providers = {
 	vim_mode = function()
-		local aliases = {
+		local vim_mode_aliases = {
 			["n"] = "NORMAL",
 			["no"] = "OP",
 			["nov"] = "OP",
@@ -69,256 +37,276 @@ local component_generators = {
 			["null"] = "NONE",
 		}
 
-		local mode_format = "▊ %s"
+		local mode = vim.api.nvim_get_mode().mode
 
-		return {
-			name = "vim_mode",
-			provider = function()
-				local mode = vim.api.nvim_get_mode().mode
-
-				if aliases[mode] then
-					mode = aliases[mode]
-				else
-					mode = "NONE"
-				end
-
-				return mode_format:format(mode)
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
-	end,
-	file_path = function()
-		local default_path = "[empty]"
-
-		return {
-			name = "file_path",
-			provider = function()
-				local path = vim.fn.expand("%:p:~")
-
-				if path:len() == 0 then
-					path = default_path
-				end
-
-				return path
-			end,
-			short_provider = function()
-				local path = vim.fn.expand("%:~:.")
-
-				if path:len() == 0 then
-					path = default_path
-				end
-
-				return path
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
-	end,
-	file_name = function()
-		return {
-			name = "file_name",
-			provider = function()
-				return vim.fn.expand("%:t")
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
-	end,
-	file_modified = function()
-		return {
-			name = "file_modified",
-			provider = function()
-				-- return vim.bo.modified and "○" or "●"
-				return vim.bo.modified and "[+]" or "   "
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
-	end,
-	file_extension = function()
-		local icons = require("nvim-web-devicons").get_icons()
-		local format = "%s %s"
-		local default = ""
-
-		local get_icon = function(extension)
-			icon = icons[extension] or { icon = default }
-
-			return icon.icon
+		if vim_mode_aliases[mode] then
+			mode = vim_mode_aliases[mode]
+		else
+			mode = "NONE"
 		end
 
-		return {
-			name = "file_extension",
-			provider = function()
-				local extension = vim.fn.expand("%:e")
-				local icon = get_icon(extension)
-
-				return format:format(icon, extension)
-			end,
-			short_provider = function()
-				local extension = vim.fn.expand("%:e")
-				local icon = get_icon(extension)
-
-				return format:format(icon, extension)
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			enabled = function()
-				return vim.fn.expand("%:e"):len() ~= 0
-			end,
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
+		return ("▊ %s"):format(mode)
 	end,
-	git_info = function()
-		-- print("    ")
-		local format = "  %s +%d -%d ~%d"
+	file_path = function()
+		local path = vim.fn.expand("%:p:~")
 
-		return {
-			name = "git_info",
-			provider = function()
-				local branch = vim.b.gitsigns_head
-				local status = vim.b.gitsigns_status_dict
+		if path:len() == 0 then
+			path = "[empty]"
+		end
 
-				local added = status.added or 0
-				local removed = status.removed or 0
-				local changed = status.changed or 0
-
-				return format:format(branch, added, removed, changed)
-			end,
-			short_provider = function()
-				local branch = vim.b.gitsigns_head
-				local status = vim.b.gitsigns_status_dict
-
-				local added = status.added or 0
-				local removed = status.removed or 0
-				local changed = status.changed or 0
-
-				return format:format(branch, added, removed, changed)
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			enabled = function()
-				return vim.b.gitsigns_head
-			end,
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
+		return path
 	end,
-	lsp_info = function()
-		--    
-		local format = " %s  %s "
-		
-		-- format = " %d  %d "
+	short_file_path = function()
+		local path = vim.fn.expand("%:~:.")
 
-		return {
-			name = "lsp_info",
-			provider = function()
-				local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) or 0
-				local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) or 0
+		if path:len() == 0 then
+			path = "[empty]"
+		end
 
-				return format:format(errors, warnings)
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			enabled = function()
-				return true
-			end,
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
+		return "    " .. path
+	end,
+	file_modified = function()
+		if vim.bo.modified then
+			return "[+]"
+		end
+
+		return "   "
+	end,
+	file_type = function()
+		local get_icon = require("nvim-web-devicons").get_icon_by_filetype
+
+		local file_type = vim.bo.filetype
+		local icon = get_icon(file_type) or ""
+
+		return ("%s %s"):format(icon, file_type)
+	end,
+	git_branch = function()
+		return (" %s"):format(vim.b.gitsigns_head)
+	end,
+	git_diff_added = function()
+		return ("+%d"):format(vim.b.gitsigns_status_dict.added or 0)
+	end,
+	git_diff_deleted = function()
+		return ("-%d"):format(vim.b.gitsigns_status_dict.deleted or 0)
+	end,
+	git_diff_changed = function()
+		return ("~%d"):format(vim.b.gitsigns_status_dict.changed or 0)
+	end,
+	diagnostic_errors = function()
+		local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) or 0
+
+		return (" %d"):format(errors)
+	end,
+	diagnostic_warnings = function()
+		local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) or 0
+
+		return (" %d"):format(warnings)
 	end,
 	cursor_position = function()
-		return {
-			name = "cursor_position",
-			provider = function()
-				local line, column = unpack(vim.api.nvim_win_get_cursor(0))
+		local line, column = unpack(vim.api.nvim_win_get_cursor(0))
 
-				return ("≡ Ln %d, Col %d"):format(line, column + 1)
-			end,
-			short_provider = function()
-				local line, column = unpack(vim.api.nvim_win_get_cursor(0))
-
-				return ("≡ %d:%d"):format(line, column + 1)
-			end,
-			priority = 0,
-			hl = "StatusLine",
-			right_sep = {
-				str = " ",
-				hl = "Normal",
-			},
-		}
+		-- icons: 
+		return ("≡ Ln %d, Col %d"):format(line, column + 1)
 	end,
 }
+
+local separator = {
+	str = " ",
+	hl = "StatusLine",
+}
+
+local components = {
+	vim_mode = {
+		name = "vim_mode",
+		provider = "vim_mode_provider",
+		priority = 5,
+		hl = "StatusLine",
+		right_sep = separator,
+	},
+	file_path = {
+		name = "file_path",
+		provider = "file_path_provider",
+		short_provider = "short_file_path_provider",
+		priority = 0,
+		hl = "StatusLineNC",
+		right_sep = separator,
+	},
+	file_modified = {
+		name = "file_modified",
+		provider = "file_modified_provider",
+		hl = "StatusLineNC",
+		right_sep = separator,
+	},
+	file_type = {
+		name = "file_type",
+		provider = "file_type_provider",
+		short_provider = "",
+		priority = 1,
+		hl = "StatusLine",
+		enabled = function()
+			return vim.fn.expand("%:e"):len() ~= 0
+		end,
+		left_sep = separator,
+		right_sep = separator,
+	},
+	git_branch = {
+		name = "git_branch",
+		provider = "git_branch_provider",
+		short_provider = "",
+		priority = 2,
+		hl = "StatusLine",
+		enabled = function()
+			return vim.b.gitsigns_head
+		end,
+		left_sep = separator,
+		right_sep = separator,
+	},
+	git_diff_added = {
+		name = "git_diff_added",
+		provider = "git_diff_added_provider",
+		short_provider = "",
+		priority = 2,
+		hl = "StatusLine",
+		enabled = function()
+			return vim.b.gitsigns_head
+		end,
+		right_sep = separator,
+	},
+	git_diff_deleted = {
+		name = "git_diff_deleted",
+		provider = "git_diff_deleted_provider",
+		short_provider = "",
+		priority = 2,
+		hl = "StatusLine",
+		enabled = function()
+			return vim.b.gitsigns_head
+		end,
+		right_sep = separator,
+	},
+	git_diff_changed = {
+		name = "git_diff_changed",
+		provider = "git_diff_changed_provider",
+		short_provider = "",
+		priority = 2,
+		hl = "StatusLine",
+		enabled = function()
+			return vim.b.gitsigns_head
+		end,
+		right_sep = separator,
+	},
+	diagnostic_errors = {
+		name = "diagnostic_errors",
+		provider = "diagnostic_errors_provider",
+		short_provider = "",
+		priority = 3,
+		hl = function()
+			local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) or 0
+
+			if errors == 0 then
+				return "StatusLine"
+			end
+
+			return "DiagnosticError"
+		end,
+		right_sep = separator,
+	},
+	diagnostic_warnings = {
+		name = "diagnostic_warnings",
+		provider = "diagnostic_warnings_provider",
+		short_provider = "",
+		priority = 3,
+		hl = function()
+			local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }) or 0
+
+			if warnings == 0 then
+				return "StatusLine"
+			end
+
+			return "DiagnosticWarn"
+		end,
+		right_sep = separator,
+	},
+	cursor_position = {
+		name = "cursor_position",
+		provider = "cursor_position_provider",
+		priority = 5,
+		hl = "StatusLine",
+		right_sep = separator,
+	},
+}
+
 return {
     "freddiehaddad/feline.nvim",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
     config = function()
-		-- vim_mode[| mode] file_name[icon, name, modified] git_branch[icon, branch] git_diff_info[added, changed, removed]
-		-- file_path
-		-- lsp_info[errors, warnings, hints, info] position[line:column]
-
-		local vim_mode = component_generators.vim_mode()
-		-- local file_name = component_generators.file_name()
-		local file_path = component_generators.file_path()
-		local file_extension = component_generators.file_extension()
-		local file_modified = component_generators.file_modified()
-		local git_info = component_generators.git_info()
-		local lsp_info = component_generators.lsp_info()
-		local cursor_position = component_generators.cursor_position()
-
-		local components = {
-			active = {
-				{ -- left
-					vim_mode,
-					git_info,
-				},
-				{ -- middle
-					file_path,
-					file_modified,
-				},
-				{ -- right
-					lsp_info,
-					file_extension,
-					cursor_position,
-				}
-			},
-			inactive = {
-				{ -- left
-					vim_mode,
-				},
-				{ -- right
-					cursor_position,
-				}
-			},
-		}
-
 		require("feline").setup({
-			components = components,
+			components = {
+				active = {
+					{ -- left
+						components.vim_mode,
+						components.git_branch,
+						components.git_diff_added,
+						components.git_diff_deleted,
+						components.git_diff_changed,
+					},
+					{ -- middle
+						components.file_path,
+						components.file_modified,
+					},
+					{ -- right
+						components.diagnostic_errors,
+						components.diagnostic_warnings,
+						components.file_type,
+						components.cursor_position,
+					},
+				},
+				inactive = {
+					{ -- left
+						components.vim_mode,
+					},
+					{
+						components.file_path,
+					},
+					{ -- right
+						components.file_type,
+						components.cursor_position,
+					},
+				},
+			},
+			custom_providers = {
+				vim_mode_provider = providers.vim_mode,
+				git_branch_provider = providers.git_branch,
+				git_diff_added_provider = providers.git_diff_added,
+				git_diff_deleted_provider = providers.git_diff_deleted,
+				git_diff_changed_provider = providers.git_diff_changed,
+				file_path_provider = providers.file_path,
+				short_file_path_provider = providers.short_file_path,
+				file_modified_provider = providers.file_modified,
+				diagnostic_errors_provider = providers.diagnostic_errors,
+				diagnostic_warnings_provider = providers.diagnostic_warnings,
+				file_type_provider = providers.file_type,
+				cursor_position_provider = providers.cursor_position,
+			},
+			force_inactive = {
+				filetypes = {
+					'^NvimTree$',
+					'^TelescopePrompt$',
+					'^lazy$',
+					'^mason$',
+					'^packer$',
+					'^startify$',
+					'^fugitive$',
+					'^fugitiveblame$',
+					'^qf$',
+					'^help$'
+				},
+				buftypes = {
+					'^terminal$'
+				},
+				bufnames = {}
+			}
 		})
 
 		require("feline").reset_highlights()
