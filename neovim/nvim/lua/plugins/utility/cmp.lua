@@ -11,6 +11,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp-signature-help",
         {
             "L3MON4D3/LuaSnip",
+			dependencies = { "rafamadriz/friendly-snippets" },
             version = "v2.*",
             -- install jsregexp (optional!).
             build = "make install_jsregexp",
@@ -21,7 +22,6 @@ return {
 			end,
         },
 		"saadparwaiz1/cmp_luasnip",
-        "rafamadriz/friendly-snippets",
         "onsails/lspkind.nvim", -- vs-code like pictograms
     },
 	config = function()
@@ -111,14 +111,14 @@ return {
 						fallback()
 					end
 				end,
-				["<leader>n"] = function(fallback)
+				["<a-s>"] = function(fallback)
 					if luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()
 					else
 						fallback()
 					end
 				end,
-				["<leader>m"] = function(fallback)
+				["<a-a>"] = function(fallback)
 					if luasnip.jumpable(-1) then
 						luasnip.jump(-1)
 					else
