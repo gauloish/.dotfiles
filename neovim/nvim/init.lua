@@ -1,4 +1,3 @@
---------------- Initialize Neovim ---------------
-
+-- Initialize Neovim
 require("config")
 require("plugins")

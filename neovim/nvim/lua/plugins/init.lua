@@ -1,6 +1,6 @@
 -- Plugins Setup
 require("plugins.lazy").setup({
-	-- Plugins
+	-- Utility plugins
 	require("plugins.utility.schemes"),
 	require("plugins.utility.treesitter"),
 	require("plugins.utility.telescope"),
@@ -15,12 +15,12 @@ require("plugins.lazy").setup({
 	require("plugins.utility.feline"),
 	require("plugins.utility.incline"),
 	require("plugins.utility.colorizer"),
-	-- Language
+	-- Language plugins
 	require("plugins.language.mason"),
 	require("plugins.language.nvim-lspconfig"),
 	require("plugins.language.nvim-lint"),
 	require("plugins.language.conform"),
-	-- Color Schemes
+	-- Color Schemes plugins
 	require("plugins.schemes.oxocarbon"),
 	require("plugins.schemes.catppuccin"),
 	require("plugins.schemes.tokyonight"),
