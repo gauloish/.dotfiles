@@ -22,7 +22,8 @@ return {
 				preview = {
 					treesitter = true,
 				},
-				prompt_prefix = "  ",
+				-- prompt_prefix = "   ",
+				prompt_prefix = " >> ",
 				selection_caret = " ",
 			},
 			pickers = {

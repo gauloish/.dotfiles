@@ -1,5 +1,3 @@
----------- Completion Setup
-
 return {
 	"hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -47,33 +45,33 @@ return {
 			mode = "symbol_text",
 			preset = "codicons",
 			symbol_map = {
-				Class = " ﰩ",
-				Color = " ",
-				Constant = " π",
-				Constructor = " ",
-				Enum = " ",
-				Member = " ",
+				Class = " 󰜫",
+				Color = " 󰀽", -- OK
+				Constant = " 󰏿", -- OK
+				Constructor = " 󰆧",
+				Enum = " 󰁀",
+				Member = " 󰀾",
 				EnumMember = " ",
 				Event = " כּ",
 				Field = " ",
-				File = " ",
+				File = " ",
 				Folder = " ",
-				Function = " ",
-				Interface = " ",
+				Function = " 󰆧",
+				Interface = " ", -- OK
 				Keyword = " ▢",
-				Method = " ",
+				Method = " 󰏗",
 				Module = " ",
 				Operator = " ◎",
 				Property = " ",
-				Reference = " ",
+				Reference = " 󰌹", -- OK
 				Snippet = " ",
-				Struct = " ",
-				Text = "Aa",
+				Struct = " 󰌨",
+				Text = " ", -- OK
 				Type = " ",
 				TypeParameter = " ",
-				Unit = " λ",
-				Value = " β",
-				Variable = " α",
+				Unit = " 󰘧",
+				Value = " 󰂡",
+				Variable = " 󰀫",
 			},
 		})
 
@@ -113,14 +111,14 @@ return {
 						fallback()
 					end
 				end,
-				["<a-s>"] = function(fallback)
+				["<leader>n"] = function(fallback)
 					if luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()
 					else
 						fallback()
 					end
 				end,
-				["<a-a>"] = function(fallback)
+				["<leader>m"] = function(fallback)
 					if luasnip.jumpable(-1) then
 						luasnip.jump(-1)
 					else
