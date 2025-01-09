@@ -27,7 +27,7 @@ vim.opt["timeoutlen"] = 100000
 -- vim.opt["foldlevelstart"] = 99
 -- vim.opt["foldenable"] = true
 
-vim.opt["signcolumn"] = "yes"
+vim.opt["signcolumn"] = "yes:2"
 
 vim.opt["laststatus"] = 3
 
