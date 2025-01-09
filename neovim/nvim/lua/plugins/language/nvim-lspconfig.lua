@@ -10,6 +10,7 @@ return {
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true, buffer = true, desc = "Go to previous buffer diagnostic" })
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true, buffer = true, desc = "Go to next buffer diagnostic" })
 			vim.keymap.set("n", "gl", vim.diagnostic.setloclist, { silent = true, buffer = true, desc = "Open float window with buffer diagnostics" })
+			vim.keymap.set("n", "gq", vim.diagnostic.setqflist, { silent = true, buffer = true, desc = "Open float window with buffer quickfix" })
 
 			----- Buffers
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true, buffer = true, desc = "Go to definition" })
