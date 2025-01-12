@@ -28,6 +28,8 @@ source $HOME/.dotfiles/utils.sh
 	sudo dnf install -y pip
 	pip install pynvim
 	pip install yarp
+	pip install jupyter jupyterlab
+	pip install jupytext
 
 #Node:
 	log "Installing Node Dependencies." "blue"
