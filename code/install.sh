@@ -3,6 +3,7 @@
 source $HOME/.dotfiles/utils.sh
 
 #----- Install VS Code
+	log "Installing JetBrains Font." "blue"
 	sudo dnf copr enable elxreno/jetbrains-mono-fonts -y
 	sudo dnf install jetbrains-mono-fonts -y
 
