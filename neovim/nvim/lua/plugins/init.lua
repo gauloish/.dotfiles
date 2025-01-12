@@ -11,8 +11,6 @@ require("plugins.lazy").setup({
 	require("plugins.utility.neogen"),
 	require("plugins.utility.comment"),
 	require("plugins.utility.gitsigns"),
-	-- require("plugins.utility.diffview"),
-	-- require("plugins.utility.neogit"),
 	require("plugins.utility.web-devicons"),
 	require("plugins.utility.feline"),
 	require("plugins.utility.incline"),
@@ -23,6 +21,11 @@ require("plugins.lazy").setup({
 	require("plugins.language.nvim-lspconfig"),
 	require("plugins.language.nvim-lint"),
 	require("plugins.language.conform"),
+	-- Python plugins
+	require("plugins.language.python.jupytext"),
+	require("plugins.language.python.image"),
+	require("plugins.language.python.iron"),
+	require("plugins.language.python.notebook-navigator"),
 	-- Color Schemes plugins
 	require("plugins.schemes.oxocarbon"),
 	require("plugins.schemes.catppuccin"),
