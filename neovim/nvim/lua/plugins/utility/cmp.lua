@@ -22,6 +22,7 @@ return {
 			end,
         },
 		"saadparwaiz1/cmp_luasnip",
+		"ray-x/cmp-treesitter",
         "onsails/lspkind.nvim", -- vs-code like pictograms
     },
 	config = function()
@@ -37,8 +38,9 @@ return {
 			luasnip = "Snippets",
 			nvim_lua = "Vim",
 			nvim_lsp = "Language",
-			nvim_lsp_document_symbol = "Document",
+			nvim_lsp_document_symbol = "Symbols",
 			nvim_lsp_signature_help = "Signature",
+			treesitter = "Treesitter",
 		}
 
 		lspkind.init({
@@ -137,6 +139,7 @@ return {
 				{ name = "calc" },
 				{ name = "nvim_lsp_document_symbol" },
 				{ name = "nvim_lsp_signature_help" },
+				{ name = "treesitter" },
 			},
 			formatting = {
 				format = lspkind.cmp_format({

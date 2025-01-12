@@ -25,21 +25,25 @@ return {
 
 		local capabilities = vim.tbl_deep_extend(
 			"force",
-			lspconfig.util.default_config.capabilities,
+			vim.lsp.protocol.make_client_capabilities(),
 			cmp.default_capabilities()
 		)
 
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 		local servers = {
 			["lua_ls"] = {
-				Lua = {
-					runtime = {
-						version = "LuaJIT",
-					},
-					diagnostics = {
-						globals = {"vim"},
-					},
-					telemetry = {
-						enable = false,
+				settings = {
+					Lua = {
+						runtime = {
+							version = "LuaJIT",
+						},
+						diagnostics = {
+							globals = {"vim"},
+						},
+						telemetry = {
+							enable = false,
+						},
 					},
 				},
 			},
@@ -48,12 +52,13 @@ return {
 		}
 
 		-- LSP servers setup
-		for server, settings in pairs(servers) do
-			lspconfig[server].setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-				settings = settings,
-			})
+		for server, config in pairs(servers) do
+			lspconfig[server].setup(
+				vim.tbl_deep_extend("force", config, {
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			)
 		end
 
 		-- LSP windows with rounded border

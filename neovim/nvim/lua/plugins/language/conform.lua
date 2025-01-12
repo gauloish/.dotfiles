@@ -9,9 +9,10 @@ return {
 				c = {"clang-format"},
 				cpp = {"clang-format"},
 				python = {"black", "isort"},
-			}
+			},
 		})
 
 		vim.keymap.set("n", "<leader>gf", conform.format, { silent = true, desc = "Format code" })
+		vim.keymap.set("v", "<leader>gf", conform.format, { silent = true, desc = "Format code" })
 	end,
 }

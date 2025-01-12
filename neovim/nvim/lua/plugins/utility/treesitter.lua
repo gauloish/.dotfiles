@@ -8,7 +8,6 @@ return {
 			auto_install = true,
 			highlight = {
 				enable = true,
-				-- disable = { "help" },
 			},
 			indent = {
 				enable = false, -- true
