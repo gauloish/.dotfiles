@@ -11,6 +11,7 @@ source $HOME/.dotfiles/utils.sh
 #----- Install and Setup Softwares
 
 source $REPO/neovim/install.sh
+source $REPO/code/install.sh
 source $REPO/starship/install.sh
 source $REPO/fish/install.sh
 source $REPO/fonts/install.sh
