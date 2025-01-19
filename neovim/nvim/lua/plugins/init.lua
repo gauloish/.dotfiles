@@ -22,7 +22,7 @@ require("plugins.lazy").setup({
 	require("plugins.language.nvim-lint"),
 	require("plugins.language.conform"),
 	-- Python plugins
-	require("plugins.language.python.jupytext"),
+	-- require("plugins.language.python.jupytext"),
 	require("plugins.language.python.iron"),
 	require("plugins.language.python.notebook-navigator"),
 	-- Color Schemes plugins

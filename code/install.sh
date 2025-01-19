@@ -3,6 +3,16 @@
 source $HOME/.dotfiles/utils.sh
 
 #----- Install VS Code
+	log "Installing Python and Utilitaries." "blue"
+	sudo dnf install -y python
+	sudo dnf install -y pip
+
+	pip install pylance
+	pip install flake8
+	pip install mypy
+	pip install black
+	pip install isort
+
 	log "Installing JetBrains Font." "blue"
 	sudo dnf copr enable elxreno/jetbrains-mono-fonts -y
 	sudo dnf install jetbrains-mono-fonts -y
