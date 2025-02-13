@@ -20,6 +20,7 @@ source $HOME/.dotfiles/utils.sh
 	log "Installing VS Code." "blue"
 	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 	echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+    sudo dnf install -y code
 	
 	echo " "
 	log "VS Code Installed." "green"

@@ -13,12 +13,12 @@ source $HOME/.dotfiles/utils.sh
 
 #C++:
 	log "Installing C++ Dependencies." "blue"
-	sudo dnf install gcc-c++
+	sudo dnf install -y gcc-c++
 
 #Java:
     log "Installing Java Dependencies." "blue"
-    sudo dnf install java java-devel
-	sudo dnf install java-latest-openjdk-devel
+    sudo dnf install -y java java-devel
+	sudo dnf install -y java-latest-openjdk-devel
 
     echo 'export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")' >> ~/.bashrc
 

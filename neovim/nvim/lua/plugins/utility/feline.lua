@@ -236,7 +236,7 @@ local components = {
 }
 
 return {
-    "freddiehaddad/feline.nvim",
+    "famiu/feline.nvim",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
