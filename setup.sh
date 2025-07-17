@@ -18,4 +18,5 @@ source $REPO/fonts/install.sh
 source $REPO/orchis/install.sh
 source $REPO/swidow/install.sh
 source $REPO/terminal/install.sh
+source $REPO/jetbrains/install.sh
 source $REPO/chrome/install.sh
