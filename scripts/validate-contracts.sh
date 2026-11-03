@@ -5,12 +5,13 @@
 set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 # shellcheck source=./utils/logger.sh
 source "${SCRIPT_DIR}/utils/logger.sh"
 
 validate_single_script() {
     local file="$1"
-    local rel_file="${file#"${SCRIPT_DIR}/../"}"
+    local rel_file="${file#"${REPO_ROOT}/"}"
     local errors=()
 
     # Determine expected phase from path
