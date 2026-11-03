@@ -1,0 +1,17 @@
+# Runtime execution logs
+logs/*
+!logs/.gitkeep
+
+# Automatic symlink conflict backups
+backups/*
+!backups/.gitkeep
+
+# Runtime execution state
+.state/*
+!.state/.gitkeep
+
+# Editor and OS temporary files
+*.swp
+*.swo
+*~
+.DS_Store
