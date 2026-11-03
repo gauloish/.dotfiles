@@ -102,20 +102,20 @@ state_set_status() {
     awk -F'\t' -v OFS='\t' \
         -v id="${script_id}" \
         -v st="${status}" \
-        -v sub="${substatus}" \
+        -v s_sub="${substatus}" \
         -v ec="${exit_code}" \
         -v tm="${ts}" \
         -v lf="${log_file}" '
         BEGIN { updated = 0 }
         $1 == id {
-            print id, st, sub, ec, tm, lf
+            print id, st, s_sub, ec, tm, lf
             updated = 1
             next
         }
         { print $0 }
         END {
             if (!updated) {
-                print id, st, sub, ec, tm, lf
+                print id, st, s_sub, ec, tm, lf
             }
         }
     ' "${state_file}" > "${tmp_state}"

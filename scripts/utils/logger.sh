@@ -105,7 +105,10 @@ run_cmd() {
     rm -f "${tmp_out}"
 
     if [[ ${exit_code} -ne 0 ]]; then
-        log_error "Command failed (exit code ${exit_code}): $*"
+        local caller_file="${BASH_SOURCE[1]:-unknown}"
+        local caller_line="${BASH_LINENO[0]:-0}"
+        log_error "Command failed at ${caller_file}:${caller_line} (exit code ${exit_code}): $*"
+        _DOTFILES_ERROR_HANDLED=1
         return "${exit_code}"
     fi
 
