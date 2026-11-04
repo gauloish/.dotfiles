@@ -56,6 +56,8 @@ Execution logs are stored in `logs/latest/`. Use the log viewer to inspect them:
 ./scripts/log-viewer.sh --failed
 ```
 
+For detailed command options, runtime directories, and instructions on adding new scripts, see [docs/USAGE.md](docs/USAGE.md).
+
 ## License
 
 Released under the [MIT License](LICENSE).
