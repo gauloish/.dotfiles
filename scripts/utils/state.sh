@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# State persistence manager (.state/status.tsv) for script execution tracking.
+# State persistence manager (state/status.tsv) for script execution tracking.
 
 if [[ -n "${_DOTFILES_STATE_LOADED:-}" ]]; then
     return 0
@@ -7,7 +7,7 @@ fi
 readonly _DOTFILES_STATE_LOADED=1
 
 state_file_path() {
-    printf "%s\n" "${DOTFILES_STATE_FILE:-${DOTFILES_ROOT}/.state/status.tsv}"
+    printf "%s\n" "${DOTFILES_STATE_FILE:-${DOTFILES_ROOT}/state/status.tsv}"
 }
 
 state_init() {
