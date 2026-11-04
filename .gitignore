@@ -1,14 +1,11 @@
 # Runtime execution logs
-logs/*
-!logs/.gitkeep
+/logs/
 
 # Automatic symlink conflict backups
-backups/*
-!backups/.gitkeep
+/backups/
 
 # Runtime execution state
-.state/*
-!.state/.gitkeep
+/state/
 
 # Editor and OS temporary files
 *.swp
