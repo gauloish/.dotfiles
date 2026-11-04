@@ -17,7 +17,7 @@ export DOTFILES_UTILS_DIR
 export DOTFILES_CONFIG_DIR="${DOTFILES_ROOT}/config"
 export DOTFILES_LOGS_DIR="${DOTFILES_ROOT}/logs"
 export DOTFILES_BACKUP_DIR="${DOTFILES_ROOT}/backups"
-export DOTFILES_STATE_DIR="${DOTFILES_ROOT}/.state"
+export DOTFILES_STATE_DIR="${DOTFILES_ROOT}/state"
 export DOTFILES_STATE_FILE="${DOTFILES_STATE_DIR}/status.tsv"
 
 # Determine the caller script and extract its @id metadata if not already set
