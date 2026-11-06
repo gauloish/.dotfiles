@@ -78,6 +78,7 @@ validate_single_script() {
     struct_issues="$(awk '
         BEGIN {
             in_func = 0
+            in_readonly_array = 0
             brace_depth = 0
             main_line = 0
             helper_after_main = 0
@@ -119,10 +120,22 @@ validate_single_script() {
         }
         # Top-level lines (outside functions)
         brace_depth == 0 {
+            if (in_readonly_array) {
+                if (line_trimmed ~ /\)$/) {
+                    in_readonly_array = 0
+                }
+                next
+            }
             if (line_trimmed ~ /^set -Eeuo pipefail/) next
             if (line_trimmed ~ /^SCRIPT_DIR=/) next
             if (line_trimmed ~ /^(source|\.)[[:space:]]+/) next
-            if (line_trimmed ~ /^readonly[[:space:]]+[A-Za-z_][A-Za-z0-9_]*=/) next
+            if (line_trimmed ~ /^readonly[[:space:]]+(-a[[:space:]]+)?[A-Za-z_][A-Za-z0-9_]*=\(/) {
+                if (line_trimmed !~ /\)$/) {
+                    in_readonly_array = 1
+                }
+                next
+            }
+            if (line_trimmed ~ /^readonly[[:space:]]+(-[a-zA-Z]+[[:space:]]+)?[A-Za-z_][A-Za-z0-9_]*=/) next
             if (line_trimmed == "main \"$@\"") next
             if (bad_top_level == "") {
                 bad_top_level = sprintf("line %d (%s)", NR, line_trimmed)
