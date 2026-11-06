@@ -2,6 +2,7 @@
 # @id: install/reversal-icon-theme
 # @name: Reversal Icon Theme
 # @order: 30
+# @depends: install/gnome-tools
 
 set -Eeuo pipefail
 
