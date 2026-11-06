@@ -9,11 +9,16 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=../utils/core.sh
 source "${SCRIPT_DIR}/../utils/core.sh"
 
-readonly DOCKER_PACKAGES="moby-engine docker-compose docker-compose-switch docker-buildx"
+readonly -a DOCKER_PACKAGES=(
+    "moby-engine"
+    "docker-compose"
+    "docker-compose-switch"
+    "docker-buildx"
+)
 
 is_docker_installed() {
     local pkg
-    for pkg in ${DOCKER_PACKAGES}; do
+    for pkg in "${DOCKER_PACKAGES[@]}"; do
         if ! rpm_is_installed "${pkg}"; then
             return 1
         fi
@@ -22,11 +27,8 @@ is_docker_installed() {
 }
 
 install_docker() {
-    local pkgs=()
-    read -r -a pkgs <<< "${DOCKER_PACKAGES}"
-
     log_step "Installing Docker and Docker Compose packages via dnf..."
-    dnf_install "${pkgs[@]}"
+    dnf_install "${DOCKER_PACKAGES[@]}"
 }
 
 main() {

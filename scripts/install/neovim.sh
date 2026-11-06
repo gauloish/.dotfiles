@@ -10,11 +10,14 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=../utils/core.sh
 source "${SCRIPT_DIR}/../utils/core.sh"
 
-readonly NEOVIM_PACKAGES="neovim python3-neovim"
+readonly -a NEOVIM_PACKAGES=(
+    "neovim"
+    "python3-neovim"
+)
 
 is_neovim_installed() {
     local pkg
-    for pkg in ${NEOVIM_PACKAGES}; do
+    for pkg in "${NEOVIM_PACKAGES[@]}"; do
         if ! rpm_is_installed "${pkg}"; then
             return 1
         fi
@@ -23,11 +26,8 @@ is_neovim_installed() {
 }
 
 install_neovim() {
-    local pkgs=()
-    read -r -a pkgs <<< "${NEOVIM_PACKAGES}"
-
     log_step "Installing Neovim packages via dnf..."
-    dnf_install "${pkgs[@]}"
+    dnf_install "${NEOVIM_PACKAGES[@]}"
 }
 
 main() {

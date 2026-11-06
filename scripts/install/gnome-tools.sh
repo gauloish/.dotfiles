@@ -9,11 +9,15 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=../utils/core.sh
 source "${SCRIPT_DIR}/../utils/core.sh"
 
-readonly GNOME_PACKAGES="gnome-tweaks gnome-extensions-app gnome-shell-extension-user-theme"
+readonly -a GNOME_PACKAGES=(
+    "gnome-tweaks"
+    "gnome-extensions-app"
+    "gnome-shell-extension-user-theme"
+)
 
 are_gnome_tools_installed() {
     local pkg
-    for pkg in ${GNOME_PACKAGES}; do
+    for pkg in "${GNOME_PACKAGES[@]}"; do
         if ! rpm_is_installed "${pkg}"; then
             return 1
         fi
@@ -22,11 +26,8 @@ are_gnome_tools_installed() {
 }
 
 install_gnome_tools() {
-    local pkgs=()
-    read -r -a pkgs <<< "${GNOME_PACKAGES}"
-
     log_step "Installing GNOME customization packages via dnf..."
-    dnf_install "${pkgs[@]}"
+    dnf_install "${GNOME_PACKAGES[@]}"
 }
 
 main() {
