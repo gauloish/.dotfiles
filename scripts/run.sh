@@ -162,7 +162,7 @@ discover_scripts() {
             SCRIPT_ORDER_MAP["${meta_id}"]="${meta_order}"
             SCRIPT_DEPS_MAP["${meta_id}"]="${meta_deps}"
 
-            raw_entries+=("$(printf "%04d\t%s" "${meta_order}" "${meta_id}")")
+            raw_entries+=("$(printf "%04d\t%s" "$((10#${meta_order}))" "${meta_id}")")
         done < <(find "${dir}" -maxdepth 1 -type f -name "*.sh" -print0 2>/dev/null)
 
         if [[ ${#raw_entries[@]} -gt 0 ]]; then
