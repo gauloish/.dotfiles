@@ -9,11 +9,34 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=../utils/core.sh
 source "${SCRIPT_DIR}/../utils/core.sh"
 
-readonly CLI_PACKAGES="git curl wget2-wget dnf-plugins-core tar zip unzip gzip bzip2 xz zstd p7zip p7zip-plugins ripgrep fd-find fzf bat jq tree btop fastfetch wl-clipboard"
+readonly -a CLI_PACKAGES=(
+    "git"
+    "curl"
+    "wget2-wget"
+    "dnf-plugins-core"
+    "tar"
+    "zip"
+    "unzip"
+    "gzip"
+    "bzip2"
+    "xz"
+    "zstd"
+    "p7zip"
+    "p7zip-plugins"
+    "ripgrep"
+    "fd-find"
+    "fzf"
+    "bat"
+    "jq"
+    "tree"
+    "btop"
+    "fastfetch"
+    "wl-clipboard"
+)
 
 are_all_cli_utils_installed() {
     local pkg
-    for pkg in ${CLI_PACKAGES}; do
+    for pkg in "${CLI_PACKAGES[@]}"; do
         if ! rpm_is_installed "${pkg}"; then
             return 1
         fi
@@ -22,11 +45,8 @@ are_all_cli_utils_installed() {
 }
 
 install_cli_utils() {
-    local pkgs=()
-    read -r -a pkgs <<< "${CLI_PACKAGES}"
-
     log_step "Installing essential CLI utilities via dnf..."
-    dnf_install "${pkgs[@]}"
+    dnf_install "${CLI_PACKAGES[@]}"
 }
 
 main() {
