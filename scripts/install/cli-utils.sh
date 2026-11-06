@@ -28,6 +28,7 @@ readonly -a CLI_PACKAGES=(
     "fzf"
     "bat"
     "jq"
+    "yq"
     "tree"
     "btop"
     "fastfetch"
