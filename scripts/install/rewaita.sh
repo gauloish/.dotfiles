@@ -2,6 +2,7 @@
 # @id: install/rewaita
 # @name: Rewaita
 # @order: 35
+# @depends: install/gnome-tools
 
 set -Eeuo pipefail
 
