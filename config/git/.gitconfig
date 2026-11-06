@@ -1,0 +1,7 @@
+[init]
+    defaultBranch = main
+[user]
+    email = 125079293+gauloish@users.noreply.github.com
+    name = gauloish
+[core]
+    editor = nvim
