@@ -261,9 +261,13 @@ main "$@"
 - Each orchestrator session creates `logs/<YYYY-MM-DD_HH-MM-SS>/` at runtime and updates the `logs/latest` symlink.
 - Each script writes to `<phase>-<name>.log` with preserved ANSI color escape codes.
 - `scripts/log-viewer.sh` options:
-  - `--list` (default when called with no arguments): Lists logs in `logs/latest/` alongside their recorded status from `state/status.tsv`.
+  - `--list` (default action): Lists logs in the target session (`logs/latest/` by default) alongside recorded statuses.
+  - `--sessions`, `--timestamps`: Lists all available execution sessions/timestamps with date, script count, and status breakdown.
+  - `-s, --session <timestamp>`: Targets a specific session (exact timestamp, 'latest', or partial string matching).
+  - `--status <filter>`: Filters log listing or output by status (`success`, `skipped`, `failed`, `blocked`, supports comma-separated list).
+  - `--failed`: Prints logs for all scripts marked as `FAILED` (shorthand for `--status failed --print`).
+  - `--print`: Prints the full content of logs matching the status filter instead of displaying the table.
   - `<script-name>`: Prints the colored log to the terminal (supports `--pager` to open in `less -R`).
-  - `--failed`: Prints logs for all scripts currently marked as `FAILED`.
   - `<script-name> --errors`: Filters output to show only `[WARN]` and `[ERROR]` lines.
 
 ---

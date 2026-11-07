@@ -30,7 +30,6 @@ readonly -a CLI_PACKAGES=(
     "jq"
     "yq"
     "tree"
-    "btop"
     "fastfetch"
     "wl-clipboard"
 )

@@ -335,6 +335,7 @@ run_single_script() {
     if ! failed_dep="$(check_dependencies_ready "${script_id}")"; then
         SESSION_STATUS_MAP["${script_id}"]="BLOCKED"
         state_set_status "${script_id}" "BLOCKED" "-" "-" "BLOCKED"
+        printf "%s\tBLOCKED\tBLOCKED\t-\t0\n" "${script_id}" >> "${SESSION_LOG_DIR}/session.tsv"
         printf "  %s[BLOCKED]%s %-24s %s— %s (unmet dependency: %s)%s\n" \
             "${C_BOLD_YELLOW}" "${C_RESET}" \
             "${script_id}" \
@@ -373,12 +374,14 @@ run_single_script() {
         SESSION_STATUS_MAP["${script_id}"]="SUCCESS"
         if [[ -s "${skip_marker}" ]]; then
             state_set_status "${script_id}" "SUCCESS" "0" "${log_rel}" "SKIP"
+            printf "%s\tSUCCESS\tSKIP\t0\t%s\n" "${script_id}" "${elapsed}" >> "${SESSION_LOG_DIR}/session.tsv"
             printf "  %s[SKIP]%s    %-24s — %s %s(%ds)%s\n" \
                 "${C_BOLD_CYAN}" "${C_RESET}" \
                 "${script_id}" "${script_name}" \
                 "${C_GRAY}" "${elapsed}" "${C_RESET}"
         else
             state_set_status "${script_id}" "SUCCESS" "0" "${log_rel}" "OK"
+            printf "%s\tSUCCESS\tOK\t0\t%s\n" "${script_id}" "${elapsed}" >> "${SESSION_LOG_DIR}/session.tsv"
             printf "  %s[OK]%s      %-24s — %s %s(%ds)%s\n" \
                 "${C_BOLD_GREEN}" "${C_RESET}" \
                 "${script_id}" "${script_name}" \
@@ -388,6 +391,7 @@ run_single_script() {
         SESSION_STATUS_MAP["${script_id}"]="FAILED"
         FAILED_LOG_MAP["${script_id}"]="${log_abs}"
         state_set_status "${script_id}" "FAILED" "${rc}" "${log_rel}" "FAIL"
+        printf "%s\tFAILED\tFAIL\t%s\t%s\n" "${script_id}" "${rc}" "${elapsed}" >> "${SESSION_LOG_DIR}/session.tsv"
         printf "  %s[FAIL]%s    %-24s — %s %s(exit %d -> %s)%s\n" \
             "${C_BOLD_RED}" "${C_RESET}" \
             "${script_id}" "${script_name}" \
@@ -476,6 +480,7 @@ main() {
     DOTFILES_SESSION_TS="$(date +%Y-%m-%d_%H-%M-%S)"
     SESSION_LOG_DIR="${DOTFILES_LOGS_DIR}/${DOTFILES_SESSION_TS}"
     mkdir -p "${SESSION_LOG_DIR}"
+    printf "# script_id\tstatus\tsubstatus\texit_code\tduration_s\n" > "${SESSION_LOG_DIR}/session.tsv"
     ln -sfn "${DOTFILES_SESSION_TS}" "${DOTFILES_LOGS_DIR}/latest"
 
     start_sudo_keepalive
