@@ -133,17 +133,39 @@ curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh
 
 ## 4. Log Viewer (`scripts/log-viewer.sh`)
 
-Log files retain ANSI color codes and include timestamps, log levels (`INFO`, `STEP`, `CMD`, `OK`, `SKIP`, `WARN`, `ERROR`), and indented command output.
+Log files retain full ANSI color codes and include millisecond-accurate timestamps, log levels (`INFO`, `STEP`, `CMD`, `OK`, `SKIP`, `WARN`, `ERROR`), and indented command output.
+
+### Listing Sessions and Logs
 
 ```bash
+# List all available execution sessions / timestamps with status summaries
+./scripts/log-viewer.sh --sessions
+
 # List all logs from the latest session along with their recorded status
 ./scripts/log-viewer.sh
 ./scripts/log-viewer.sh --list
 
+# Filter latest session logs by status (success, skipped, failed, blocked)
+./scripts/log-viewer.sh --status failed
+./scripts/log-viewer.sh --status skipped
+./scripts/log-viewer.sh --status failed,blocked
+./scripts/log-viewer.sh --status success
+
+# Inspect or filter logs from a specific past execution session
+./scripts/log-viewer.sh --session 2026-11-07_00-12-12
+./scripts/log-viewer.sh --session 2026-11-07_00-12-12 --status failed
+```
+
+### Viewing Log Contents
+
+```bash
 # Print the full log of a specific script (accepts slug, script ID, or partial name)
 ./scripts/log-viewer.sh install-neovim
 ./scripts/log-viewer.sh install/neovim
 ./scripts/log-viewer.sh neovim
+
+# View a log from a specific past session
+./scripts/log-viewer.sh configure-gnome-tools --session 2026-11-07_00-12-12
 
 # Open a log inside 'less -R' for scrolling
 ./scripts/log-viewer.sh install-neovim --pager
@@ -151,8 +173,9 @@ Log files retain ANSI color codes and include timestamps, log levels (`INFO`, `S
 # Filter a script log to display only [WARN] and [ERROR] lines
 ./scripts/log-viewer.sh install-neovim --errors
 
-# Display logs for all scripts currently marked as FAILED in state/status.tsv
+# Print all failed script logs (from latest session or target session)
 ./scripts/log-viewer.sh --failed
+./scripts/log-viewer.sh --status failed --print --session 2026-11-07_00-12-12
 ```
 
 ---

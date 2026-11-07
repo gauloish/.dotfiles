@@ -49,16 +49,26 @@ Once cloned to `~/.dotfiles`, you can run the orchestrator directly:
 
 ## Logs
 
-Execution logs are stored in `logs/latest/`. Use the log viewer to inspect them:
+Execution logs are organized by timestamp in `logs/<YYYY-MM-DD_HH-MM-SS>/` (with `logs/latest/` linking to the newest session). Use the log viewer to inspect and filter them:
 
 ```bash
-# List logs from the latest run
+# List available execution sessions and timestamps
+./scripts/log-viewer.sh --sessions
+
+# List logs from the latest run (or filter by status: failed, skipped, success, blocked)
 ./scripts/log-viewer.sh --list
+./scripts/log-viewer.sh --status failed
+./scripts/log-viewer.sh --status skipped
+
+# Inspect logs from a specific past session
+./scripts/log-viewer.sh --session 2026-11-07_00-12-12
+./scripts/log-viewer.sh --session 2026-11-07_00-12-12 --status failed
 
 # View a specific script log
 ./scripts/log-viewer.sh install-neovim
+./scripts/log-viewer.sh configure-gnome-tools --errors
 
-# View all failed script logs
+# Print all failed script logs in the terminal
 ./scripts/log-viewer.sh --failed
 ```
 
