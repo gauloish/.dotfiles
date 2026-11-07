@@ -118,6 +118,24 @@ run_orchestrator() {
     exec "${orchestrator}" "$@"
 }
 
+usage() {
+    cat <<EOF
+Dotfiles Bootstrap Installer (Fedora Linux)
+
+Usage:
+  curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/main/bootstrap.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | bash -s -- [BOOTSTRAP_OPTIONS] [ORCHESTRATOR_OPTIONS]
+
+Bootstrap Options:
+  -b, --branch <branch>  Target Git branch to clone or checkout (default: main)
+  --repo <url>           Target Git repository URL
+  --dir <path>           Target clone directory (default: ~/.dotfiles)
+  -h, --help             Show this help message
+
+All additional options (e.g. --phase, --only, --resume, --no-deps, --no-sudo) are forwarded to scripts/run.sh.
+EOF
+}
+
 parse_bootstrap_args() {
     local passthrough=()
     while [[ $# -gt 0 ]]; do
@@ -136,6 +154,10 @@ parse_bootstrap_args() {
                 [[ $# -ge 2 ]] || die "--dir requires an argument."
                 DOTFILES_DIR="$2"
                 shift 2
+                ;;
+            -h|--help)
+                usage
+                exit 0
                 ;;
             *)
                 passthrough+=("$1")
@@ -156,9 +178,7 @@ main() {
     verify_environment
     ensure_prerequisites
     sync_repository
-    run_orchestrator ${BOOTSTRAP_PASSTHROUGH[@]+"${BOOTSTRAP_PASSTHROUGH[@]}"}
+    run_orchestrator "${BOOTSTRAP_PASSTHROUGH[@]}"
 }
 
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    main "$@"
-fi
+main "$@"
