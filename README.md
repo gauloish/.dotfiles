@@ -19,7 +19,13 @@ curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/main/bootstrap.s
 To test a specific branch during development:
 
 ```bash
-DOTFILES_BRANCH=dev curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | bash -s -- --branch dev
+```
+
+Alternatively, pass the `DOTFILES_BRANCH` environment variable directly to `bash`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | DOTFILES_BRANCH=dev bash
 ```
 
 ## Usage

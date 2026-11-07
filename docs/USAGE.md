@@ -45,24 +45,38 @@ The following directories are created automatically at runtime when scripts are 
 curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/main/bootstrap.sh | bash
 ```
 
-### Passing Arguments to the Orchestrator
+### CLI Options and Argument Forwarding
 
-Arguments passed to `bash -s --` are forwarded directly to `scripts/run.sh`:
+`bootstrap.sh` accepts options to configure the repository before forwarding any orchestrator flags to `scripts/run.sh`:
+
+- `-b, --branch <branch>`: Target Git branch to clone or checkout (defaults to `main` or `$DOTFILES_BRANCH`).
+- `--repo <url>`: Target Git repository URL (defaults to `https://github.com/gauloish/.dotfiles.git` or `$DOTFILES_REPO_URL`).
+- `--dir <path>`: Target clone directory (defaults to `${HOME}/.dotfiles` or `$DOTFILES_DIR`).
+
+Any additional arguments passed after `--` are forwarded directly to `scripts/run.sh` (e.g. `--phase`, `--only`, `--resume`, `--no-deps`, `--no-sudo`).
+
+Examples:
 
 ```bash
+# Run installation phase only
 curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/main/bootstrap.sh | bash -s -- --phase install
+
+# Test the dev branch with orchestrator flags
+curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | bash -s -- --branch dev --resume
 ```
 
 ### Environment Variables
+
+You can also configure the bootstrap process via environment variables passed directly to `bash`:
 
 - `DOTFILES_BRANCH`: Target branch to clone or update (defaults to `main`).
 - `DOTFILES_REPO_URL`: Git repository URL (defaults to `https://github.com/gauloish/.dotfiles.git`).
 - `DOTFILES_DIR`: Target installation directory (defaults to `${HOME}/.dotfiles`).
 
-Example for testing the `dev` branch:
+Example for testing the `dev` branch via environment variable:
 
 ```bash
-DOTFILES_BRANCH=dev curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | DOTFILES_BRANCH=dev bash
 ```
 
 ---
