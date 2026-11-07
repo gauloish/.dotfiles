@@ -54,6 +54,9 @@ log_step() {
 }
 
 log_ok() {
+    if [[ -n "${DOTFILES_SKIP_MARKER_FILE:-}" ]]; then
+        rm -f "${DOTFILES_SKIP_MARKER_FILE}" 2>/dev/null || true
+    fi
     _log_write "${C_BOLD_GREEN}" "OK" "$*"
 }
 
@@ -82,6 +85,10 @@ run_cmd() {
 
     local description="$1"
     shift
+
+    if [[ -n "${DOTFILES_SKIP_MARKER_FILE:-}" ]]; then
+        rm -f "${DOTFILES_SKIP_MARKER_FILE}" 2>/dev/null || true
+    fi
 
     log_step "${description}"
     _log_write "${C_MAGENTA}" "CMD" "\$ $*"
