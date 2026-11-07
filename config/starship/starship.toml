@@ -32,7 +32,7 @@ style = "bold red"
 # Python and uv Virtual Environments
 [python]
 symbol = " "
-format = "via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style) "
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style) '
 style = "bold yellow"
 
 # Docker and Containers Context
@@ -113,8 +113,9 @@ symbol = " "
 symbol = " "
 
 [git_metrics]
-added_symbol = " "
-deleted_symbol = " "
+added_style = "bold green"
+deleted_style = "bold red"
+format = '([ $added]($added_style) )([ $deleted]($deleted_style) )'
 
 [golang]
 symbol = " "
