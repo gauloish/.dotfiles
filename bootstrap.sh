@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 # Bootstrap installer for gauloish/.dotfiles on Fedora Linux.
-# Usage: curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/main/bootstrap.sh | bash
+# Usage:
+#   curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/main/bootstrap.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | bash -s -- --branch dev
 
 set -Eeuo pipefail
 
 readonly DEFAULT_REPO_URL="https://github.com/gauloish/.dotfiles.git"
 readonly DEFAULT_BRANCH="main"
 readonly DEFAULT_TARGET_DIR="${HOME}/.dotfiles"
+
+declare -a BOOTSTRAP_PASSTHROUGH=()
 
 readonly C_RESET=$'\033[0m'
 readonly C_BOLD=$'\033[1m'
@@ -114,12 +118,67 @@ run_orchestrator() {
     exec "${orchestrator}" "$@"
 }
 
+usage() {
+    cat <<EOF
+Dotfiles Bootstrap Installer (Fedora Linux)
+
+Usage:
+  curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/main/bootstrap.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/gauloish/.dotfiles/dev/bootstrap.sh | bash -s -- [BOOTSTRAP_OPTIONS] [ORCHESTRATOR_OPTIONS]
+
+Bootstrap Options:
+  -b, --branch <branch>  Target Git branch to clone or checkout (default: main)
+  --repo <url>           Target Git repository URL
+  --dir <path>           Target clone directory (default: ~/.dotfiles)
+  -h, --help             Show this help message
+
+All additional options (e.g. --phase, --only, --resume, --no-deps, --no-sudo) are forwarded to scripts/run.sh.
+EOF
+}
+
+parse_bootstrap_args() {
+    local passthrough=()
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -b|--branch)
+                [[ $# -ge 2 ]] || die "--branch requires an argument."
+                DOTFILES_BRANCH="$2"
+                shift 2
+                ;;
+            --repo)
+                [[ $# -ge 2 ]] || die "--repo requires an argument."
+                DOTFILES_REPO_URL="$2"
+                shift 2
+                ;;
+            --dir)
+                [[ $# -ge 2 ]] || die "--dir requires an argument."
+                DOTFILES_DIR="$2"
+                shift 2
+                ;;
+            -h|--help)
+                usage
+                exit 0
+                ;;
+            *)
+                passthrough+=("$1")
+                shift
+                ;;
+        esac
+    done
+    if [[ ${#passthrough[@]} -gt 0 ]]; then
+        BOOTSTRAP_PASSTHROUGH=("${passthrough[@]}")
+    else
+        BOOTSTRAP_PASSTHROUGH=()
+    fi
+}
+
 main() {
     printf "%s==> Dotfiles Bootstrap (Fedora Linux)%s\n" "${C_BOLD}" "${C_RESET}"
+    parse_bootstrap_args "$@"
     verify_environment
     ensure_prerequisites
     sync_repository
-    run_orchestrator "$@"
+    run_orchestrator "${BOOTSTRAP_PASSTHROUGH[@]}"
 }
 
 main "$@"

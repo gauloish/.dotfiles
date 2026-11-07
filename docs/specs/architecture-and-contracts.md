@@ -272,5 +272,5 @@ main "$@"
 
 1. Verifies execution on Fedora Linux (`/etc/os-release`) by a non-root user with `sudo` privileges.
 2. Ensures `git` and `curl` are installed via `sudo dnf install -y git curl` if missing.
-3. Clones the repository into `~/.dotfiles` on branch `${DOTFILES_BRANCH:-main}` (or updates it if already present).
-4. Transfers execution to `~/.dotfiles/scripts/run.sh "$@"`.
+3. Clones the repository into `~/.dotfiles` on branch `${DOTFILES_BRANCH:-main}` (or specified via `--branch`/`-b`, updating and checking out if already present).
+4. Forwards remaining CLI options (e.g. `--phase`, `--resume`, `--only`) to `~/.dotfiles/scripts/run.sh "$@"`.

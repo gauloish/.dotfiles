@@ -34,7 +34,7 @@ dnf_install() {
     done
 
     if [[ ${#missing_pkgs[@]} -eq 0 ]]; then
-        log_skip "All requested DNF packages are already installed ($*)"
+        log_info "All requested DNF packages are already installed ($*)"
         return 0
     fi
 
@@ -53,7 +53,7 @@ dnf_enable_copr() {
     local repo_slug="${copr_repo//\//-}"
 
     if compgen -G "/etc/yum.repos.d/*${repo_slug}*.repo" >/dev/null 2>&1; then
-        log_skip "COPR repository already enabled: ${copr_repo}"
+        log_info "COPR repository already enabled: ${copr_repo}"
         return 0
     fi
 
@@ -115,7 +115,7 @@ flatpak_install() {
     done
 
     if [[ ${#missing_apps[@]} -eq 0 ]]; then
-        log_skip "All requested Flatpak applications are already installed ($*)"
+        log_info "All requested Flatpak applications are already installed ($*)"
         return 0
     fi
 
