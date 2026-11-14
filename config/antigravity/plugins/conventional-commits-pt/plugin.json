@@ -1,0 +1,13 @@
+{
+  "name": "conventional-commits-pt",
+  "displayName": "Conventional Commits (Português)",
+  "description": "Especificação de convenções para commits semânticos, atômicos e contextualizados em português, proibindo o envio remoto (git push) pelo agente.",
+  "version": "1.0.0",
+  "author": "gauloish",
+  "disabled": true,
+  "suggestedPrompts": [
+    "Criar commit atômico das alterações atuais em português",
+    "Estruturar commits semânticos seguindo Conventional Commits",
+    "Revisar o status do Git e sugerir commits atômicos"
+  ]
+}
