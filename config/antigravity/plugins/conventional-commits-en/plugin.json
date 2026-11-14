@@ -1,0 +1,13 @@
+{
+  "name": "conventional-commits-en",
+  "displayName": "Conventional Commits (English)",
+  "description": "Semantic and atomic commit specifications in English, prohibiting automatic git push by the agent.",
+  "version": "1.0.0",
+  "author": "gauloish",
+  "disabled": true,
+  "suggestedPrompts": [
+    "Create an atomic commit for the current changes in English",
+    "Structure semantic commits following Conventional Commits",
+    "Review Git status and suggest atomic commits"
+  ]
+}
