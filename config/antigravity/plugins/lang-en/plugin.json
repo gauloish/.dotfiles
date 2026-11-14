@@ -1,0 +1,13 @@
+{
+  "name": "lang-en",
+  "displayName": "Project Language: English",
+  "description": "Enforces Standard Technical English across source code, commit messages, inline comments, docstrings, and documentation.",
+  "version": "1.0.0",
+  "author": "gauloish",
+  "disabled": false,
+  "suggestedPrompts": [
+    "Write commit messages and documentation in technical English",
+    "Document the current module in English",
+    "Review comments and docstrings for standard English grammar"
+  ]
+}

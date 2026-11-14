@@ -1,0 +1,6 @@
+# Política de Idioma do Projeto: Português (`lang-pt`)
+
+- **Identificadores de Código-Fonte:** Todos os símbolos de código (variáveis, funções, métodos, classes, tipos, módulos e nomes de arquivos) devem ser mantidos em **Inglês** por padrão da indústria. **Exceção:** Caso o repositório possua regra local exigindo código em português ou o código existente do projeto já adote identificadores em português de forma padronizada, mantenha a consistência em português.
+- **Commits, Documentação de Código e Documentos Técnicos:** Todas as mensagens de commit, comentários inline, docstrings e arquivos de documentação devem ser redigidos obrigatoriamente em **Português**.
+- **Norma Culta e Estilo de Escrita:** Respeite integralmente a gramática normativa da Língua Portuguesa (ortografia, acentuação, pontuação e concordância verbal/nominal). Utilize o vocabulário técnico consolidado da engenharia de software no Brasil (ex.: `implementa`, `adiciona`, `corrige`, `refatora`, `remove`, `otimiza`, `configura`), mantendo tom sóbrio, conciso, direto e livre de gírias, emojis ou preenchimento artificial.
+- **Precedência:** Regras locais do repositório (`.agents/rules/` ou `AGENTS.md` do projeto) têm prioridade sobre este plugin. Caso `lang-en` e `lang-pt` estejam habilitados simultaneamente sem regra local em contrário, `lang-pt` prevalece sobre `lang-en`.
