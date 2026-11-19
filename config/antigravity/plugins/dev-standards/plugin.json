@@ -1,0 +1,13 @@
+{
+  "name": "dev-standards",
+  "displayName": "Software Engineering Standards",
+  "description": "Core engineering guardrails and on-demand skills for atomic Conventional Commits (git-commits) and idiomatic multi-language code documentation (code-docs).",
+  "version": "1.0.0",
+  "author": "gauloish",
+  "disabled": false,
+  "suggestedPrompts": [
+    "Review Git changes and create atomic Conventional Commits",
+    "Document the current module following the code-docs specification",
+    "Audit docstrings and inline comments in the modified files"
+  ]
+}

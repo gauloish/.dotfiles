@@ -1,0 +1,13 @@
+{
+  "name": "lang-pt",
+  "displayName": "Project Language: Português",
+  "description": "Enforces formal technical Portuguese (norma culta) for commit messages, code documentation, and technical docs while keeping code identifiers in English by default.",
+  "version": "1.0.0",
+  "author": "gauloish",
+  "disabled": true,
+  "suggestedPrompts": [
+    "Escrever mensagens de commit e documentações em português técnico",
+    "Documentar o módulo atual em português seguindo a norma culta",
+    "Revisar docstrings e comentários em português"
+  ]
+}
